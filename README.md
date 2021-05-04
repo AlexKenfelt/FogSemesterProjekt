@@ -1,5 +1,10 @@
 # Template for Java webprojects
 
+Vigtige Links: 
+https://tree.taiga.io/project/alexsk2020-semesterprojekt-fog/taskboard/week-1-409
+https://docs.google.com/document/d/1mg3o4xM6cdXQKvS7ZDQeTP2C6MkX_fiRPe4H-F5H9tQ/edit?ts=608fc306
+...
+
 This startcode is for 2. semester on Computer Science in Lyngby and Bornholm. It has been
 developed by the teachers over the past 3-4 years. Java webprojects can obviously be
 organized in numerous ways. The purpose of this project is first and foremost to demonstrate
