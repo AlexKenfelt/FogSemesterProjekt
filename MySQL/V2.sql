@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `fog` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `fog`;
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: fog
@@ -18,68 +16,6 @@ USE `fog`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `carports`
---
-
-DROP TABLE IF EXISTS `carports`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `carports` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `length` double DEFAULT NULL,
-  `width` double DEFAULT NULL,
-  `shed_id` int DEFAULT NULL,
-  `price` decimal(8,2) DEFAULT NULL,
-  `partlist_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_carports_sheds1_idx` (`shed_id`),
-  KEY `fk_carports_partlists1_idx` (`partlist_id`),
-  CONSTRAINT `fk_carports_partlists1` FOREIGN KEY (`partlist_id`) REFERENCES `partlists` (`id`),
-  CONSTRAINT `fk_carports_sheds1` FOREIGN KEY (`shed_id`) REFERENCES `sheds` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `carports`
---
-
-LOCK TABLES `carports` WRITE;
-/*!40000 ALTER TABLE `carports` DISABLE KEYS */;
-/*!40000 ALTER TABLE `carports` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  `role` enum('customer','admin') DEFAULT NULL,
-  `name` varchar(25) DEFAULT NULL,
-  `address` varchar(50) DEFAULT NULL,
-  `postal` int DEFAULT NULL,
-  `city` varchar(25) DEFAULT NULL,
-  `phone` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'mail@mail.dk','pass123','customer','Julius','Paltholmpark',3520,'Farum',28299825);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `orders`
 --
 
@@ -90,15 +26,15 @@ CREATE TABLE `orders` (
   `id` int NOT NULL AUTO_INCREMENT,
   `width` double DEFAULT NULL,
   `length` double DEFAULT NULL,
+  `status` enum('pending','confirmed','delivered') NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `partlist_id` int DEFAULT NULL,
   `timestamp` timestamp NULL DEFAULT NULL,
-  `customer_id` int DEFAULT NULL,
-  `status` enum('ready','pending') DEFAULT NULL,
-  `carport_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_orders_carports1_idx` (`carport_id`),
-  KEY `fk_orders_customers1_idx` (`customer_id`),
-  CONSTRAINT `fk_orders_carports1` FOREIGN KEY (`carport_id`) REFERENCES `carports` (`id`),
-  CONSTRAINT `fk_orders_customers1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
+  KEY `fk_orders_users1_idx` (`user_id`),
+  KEY `fk_orders_partlists1_idx` (`partlist_id`),
+  CONSTRAINT `fk_orders_partlists1` FOREIGN KEY (`partlist_id`) REFERENCES `partlists` (`id`),
+  CONSTRAINT `fk_orders_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -120,7 +56,17 @@ DROP TABLE IF EXISTS `partlists`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `partlists` (
   `id` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
+  `description` varchar(255) DEFAULT NULL,
+  `price` decimal(8,2) DEFAULT NULL,
+  `length` double DEFAULT NULL,
+  `width` double DEFAULT NULL,
+  `parts_id` int DEFAULT NULL,
+  `shed_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_partlists_shed_idx` (`shed_id`),
+  KEY `fk_partlists_parts1_idx` (`parts_id`),
+  CONSTRAINT `fk_partlists_parts1` FOREIGN KEY (`parts_id`) REFERENCES `parts` (`id`),
+  CONSTRAINT `fk_partlists_shed` FOREIGN KEY (`shed_id`) REFERENCES `shed` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -142,13 +88,10 @@ DROP TABLE IF EXISTS `parts`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `parts` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `description` varchar(200) DEFAULT NULL,
-  `amount` int DEFAULT NULL,
-  `length` double DEFAULT NULL,
-  `partlist_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_parts_partlists1_idx` (`partlist_id`),
-  CONSTRAINT `fk_parts_partlists1` FOREIGN KEY (`partlist_id`) REFERENCES `partlists` (`id`)
+  `name` varchar(45) DEFAULT NULL,
+  `parts_per_unit` int DEFAULT NULL,
+  `unit` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -162,27 +105,57 @@ LOCK TABLES `parts` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `sheds`
+-- Table structure for table `shed`
 --
 
-DROP TABLE IF EXISTS `sheds`;
+DROP TABLE IF EXISTS `shed`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sheds` (
+CREATE TABLE `shed` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `length` double DEFAULT NULL,
-  `width` double DEFAULT NULL,
+  `length` int DEFAULT NULL,
+  `width` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sheds`
+-- Dumping data for table `shed`
 --
 
-LOCK TABLES `sheds` WRITE;
-/*!40000 ALTER TABLE `sheds` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sheds` ENABLE KEYS */;
+LOCK TABLES `shed` WRITE;
+/*!40000 ALTER TABLE `shed` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shed` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `role` enum('customer','admin') NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `postal` int DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `phone` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -194,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-04 14:52:32
+-- Dump completed on 2021-05-05 14:21:14
