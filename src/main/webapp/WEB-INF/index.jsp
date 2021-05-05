@@ -15,7 +15,6 @@
     <jsp:body>
 
         <div>
-
             <c:if test="${sessionScope.role == 'employee' }">
                 <p style="font-size: larger">This is what you can do,
                     since your are logged in as an employee</p>
@@ -27,7 +26,6 @@
                     are logged in as a customer</p>
                 <p><a href="fc/customerpage">Customer Page</a>
             </c:if>
-
         </div>
 
     </jsp:body>
