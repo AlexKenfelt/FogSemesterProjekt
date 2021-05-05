@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `carports`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carports` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `length` double DEFAULT NULL,
   `width` double DEFAULT NULL,
   `shed_id` int DEFAULT NULL,
@@ -49,32 +49,34 @@ LOCK TABLES `carports` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `customers`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `customers`;
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `customers` (
-  `id` int NOT NULL,
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `role` enum('customer','admin') DEFAULT NULL,
   `name` varchar(25) DEFAULT NULL,
   `address` varchar(50) DEFAULT NULL,
   `postal` int DEFAULT NULL,
   `city` varchar(25) DEFAULT NULL,
   `phone` int DEFAULT NULL,
-  `email` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `customers`
+-- Dumping data for table `users`
 --
 
-LOCK TABLES `customers` WRITE;
-/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Julius','Paltholmpark',3520,'Farum',28299825,'mail@mail.dk');
-/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'mail@mail.dk','pass123','customer','Julius','Paltholmpark',3520,'Farum',28299825);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -85,7 +87,7 @@ DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orders` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `width` double DEFAULT NULL,
   `length` double DEFAULT NULL,
   `timestamp` timestamp NULL DEFAULT NULL,
@@ -117,7 +119,7 @@ DROP TABLE IF EXISTS `partlists`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `partlists` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -139,7 +141,7 @@ DROP TABLE IF EXISTS `parts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `parts` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `description` varchar(200) DEFAULT NULL,
   `amount` int DEFAULT NULL,
   `length` double DEFAULT NULL,
@@ -167,7 +169,7 @@ DROP TABLE IF EXISTS `sheds`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sheds` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `length` double DEFAULT NULL,
   `width` double DEFAULT NULL,
   PRIMARY KEY (`id`)
