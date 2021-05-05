@@ -57,12 +57,14 @@ DROP TABLE IF EXISTS `customers`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customers` (
   `id` int NOT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `role` enum('customer','admin') DEFAULT NULL,
   `name` varchar(25) DEFAULT NULL,
   `address` varchar(50) DEFAULT NULL,
   `postal` int DEFAULT NULL,
   `city` varchar(25) DEFAULT NULL,
   `phone` int DEFAULT NULL,
-  `email` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -73,7 +75,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Julius','Paltholmpark',3520,'Farum',28299825,'mail@mail.dk');
+INSERT INTO `customers` VALUES (1,'mail@mail.dk','pass123','customer','Julius','Paltholmpark',3520,'Farum',28299825);
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
