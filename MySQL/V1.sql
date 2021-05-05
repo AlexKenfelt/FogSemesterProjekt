@@ -49,13 +49,13 @@ LOCK TABLES `carports` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `customers`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `customers`;
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `customers` (
+CREATE TABLE `users` (
   `id` int NOT NULL,
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
@@ -70,13 +70,13 @@ CREATE TABLE `customers` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `customers`
+-- Dumping data for table `users`
 --
 
-LOCK TABLES `customers` WRITE;
-/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'mail@mail.dk','pass123','customer','Julius','Paltholmpark',3520,'Farum',28299825);
-/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'mail@mail.dk','pass123','customer','Julius','Paltholmpark',3520,'Farum',28299825);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
