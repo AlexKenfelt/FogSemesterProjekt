@@ -13,7 +13,9 @@
     <title>
         <jsp:invoke fragment="header"/>
     </title>
+
     <!-- Bootstrap CSS -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/styles.css">
@@ -21,63 +23,66 @@
 </head>
 
 
-
 <body>
-    <!--
-        This header is inspired by this bootstrap
-        example: https://getbootstrap.com/docs/5.0/examples/pricing/
-    -->
+<!--
+    This header is inspired by this bootstrap
+    example: https://getbootstrap.com/docs/5.0/examples/pricing/
+-->
+<div class="container">
+    <img src="${pageContext.request.contextPath}/images/header.png" class="img-fluid mb-4"/>
 
-    <div class="container">
-        <img src="${pageContext.request.contextPath}/images/header.PNG" class="img-fluid mb-4"/>
-        <div/>
+    <header class=""
+            style="align: center;">
+        <div class="h5 my-0 me-md-auto fw-normal">
+            <p style="font-size: larger">
+                <jsp:invoke fragment="header"/>
+            </p>
+        </div>
 
-<header class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 bg-white border-bottom shadow-sm" style="align: center">
-    <div class="h5 my-0 me-md-auto fw-normal">
+        <hr style=color:#0C2069>
 
-        <p style="font-size: larger">
-            <jsp:invoke fragment="header"/>
-        </p>
-    </div>
-
-    <nav class="my-2 my-md-0 me-md-3">
-        <c:if test="${sessionScope.user == null }">
-            <a type="button" class="btn btn-sm  btn-outline-secondary"
-               href="${pageContext.request.contextPath}/fc/index">Home</a>
-            <a type="button" class="btn btn-sm  btn-outline-secondary"
-               href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
-            <a type="button" class="btn btn-sm  btn-outline-secondary"
-               href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
-        </c:if>
-    </nav>
-
-    <div>
-        <c:if test="${sessionScope.user != null }">
-            ${sessionScope.user.email}
-        </c:if>
-
-        <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
-        <c:set var="isNotLoginPage" value="${!fn:endsWith(thisPage,'loginpage.jsp')}"/>
-        <c:set var="isNotRegisterPage" value="${!fn:endsWith(thisPage,'registerpage.jsp')}"/>
-
-        <c:if test="${isNotLoginPage && isNotRegisterPage}">
-            <c:if test="${sessionScope.user != null }">
+        <nav class="my-2 my-md-0 me-md-3">
+            <c:if test="${sessionScope.user == null }">
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
-                href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
+                   href="${pageContext.request.contextPath}/fc/index">Home</a>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+            </c:if>
+        </nav>
+
+        <div>
+            <c:if test="${sessionScope.user != null }">
+                ${sessionScope.user.email}
             </c:if>
 
-    </div>
-    </c:if>
+            <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
+            <c:set var="isNotLoginPage" value="${!fn:endsWith(thisPage,'loginpage.jsp')}"/>
+            <c:set var="isNotRegisterPage" value="${!fn:endsWith(thisPage,'registerpage.jsp')}"/>
+
+            <c:if test="${isNotLoginPage && isNotRegisterPage}">
+            <c:if test="${sessionScope.user != null }">
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
+            </c:if>
+        </div>
+        </c:if>
+</div>
 </header>
 
-
-<!-- Footer -->
 <div class="container">
-    <br>
-    <hr>
-    <br>
-    <jsp:invoke fragment="footer"/>
+    <jsp:doBody/>
 </div>
 
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <br>
+        <hr style=color:#0C2069>
+        <img src="${pageContext.request.contextPath}/images/1.png" class="img-fluid" alt="Responsive image">
+        <jsp:invoke fragment="footer"/>
+    </div>
+</footer>
 </body>
 </html>
