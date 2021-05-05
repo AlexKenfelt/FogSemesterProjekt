@@ -41,10 +41,28 @@
 
         <hr style=color:#0C2069>
 
+        <!-- Dette kan nok sagtens gøres smartere, men der var ikke nogen navigations bar når man
+        loggede ind som enten admin eller customer. -->
+        <nav class="my-2 my-md-0 me-md-3">
+            <c:if test="${sessionScope.user != null }">
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/index">Home</a>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/orderpage">Byg din carport</a>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+            </c:if>
+        </nav>
+
+        <!-- Dette er den originale navigations bar du arbejdede på Maja -->
         <nav class="my-2 my-md-0 me-md-3">
             <c:if test="${sessionScope.user == null }">
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/index">Home</a>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/orderpage">Byg din carport</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"

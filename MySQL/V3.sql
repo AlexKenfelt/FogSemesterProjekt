@@ -35,7 +35,7 @@ CREATE TABLE `orders` (
   KEY `fk_orders_partlists1_idx` (`partlist_id`),
   CONSTRAINT `fk_orders_partlists1` FOREIGN KEY (`partlist_id`) REFERENCES `partlists` (`id`),
   CONSTRAINT `fk_orders_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +44,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,500,800,'pending',2,1,'2021-05-05 13:15:55');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +68,7 @@ CREATE TABLE `partlists` (
   KEY `fk_partlists_parts1_idx` (`parts_id`),
   CONSTRAINT `fk_partlists_parts1` FOREIGN KEY (`parts_id`) REFERENCES `parts` (`id`),
   CONSTRAINT `fk_partlists_shed` FOREIGN KEY (`shed_id`) REFERENCES `shed` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,6 +77,7 @@ CREATE TABLE `partlists` (
 
 LOCK TABLES `partlists` WRITE;
 /*!40000 ALTER TABLE `partlists` DISABLE KEYS */;
+INSERT INTO `partlists` VALUES (1,'I am not really sure what to put here',42069.96,500,800,1,1);
 /*!40000 ALTER TABLE `partlists` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +94,7 @@ CREATE TABLE `parts` (
   `parts_per_unit` int DEFAULT NULL,
   `unit` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,6 +103,11 @@ CREATE TABLE `parts` (
 
 LOCK TABLES `parts` WRITE;
 /*!40000 ALTER TABLE `parts` DISABLE KEYS */;
+INSERT INTO `parts` VALUES (1,'25x200	mm.	trykimp. Brædt',4,'stk'),
+(2,'25x125 mm. trykimp. Brædt',2,'stk'),
+(3,'45x195	mm. spærtræ	ubh.',2,'stk'),
+(4,'97x97 mm. trykimp. Stolpe',11,'stk'),
+(5,'plastmo bundskruer 200 stk.',3,'pakke');
 /*!40000 ALTER TABLE `parts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +123,7 @@ CREATE TABLE `shed` (
   `length` int DEFAULT NULL,
   `width` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,6 +132,7 @@ CREATE TABLE `shed` (
 
 LOCK TABLES `shed` WRITE;
 /*!40000 ALTER TABLE `shed` DISABLE KEYS */;
+INSERT INTO `shed` VALUES (1,200,200);
 /*!40000 ALTER TABLE `shed` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +154,7 @@ CREATE TABLE `users` (
   `city` varchar(45) DEFAULT NULL,
   `phone` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,6 +163,8 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'mail@mail.dk','pass123','admin','julius','paltholmpark',3520,'farum',28299825),
+(2,'test@mail.dk','test123','customer','hans','rababervej',2300,'amager',11223344);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -167,4 +177,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-05 14:21:14
+-- Dump completed on 2021-05-05 15:26:26

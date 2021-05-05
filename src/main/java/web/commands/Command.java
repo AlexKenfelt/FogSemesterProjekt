@@ -27,7 +27,13 @@ public abstract class Command
         commands.put("registerpage", new CommandUnprotectedPage("registerpage"));
         commands.put("registercommand", new RegisterCommand(""));
         commands.put("customerpage", new CommandProtectedPage("customerpage", "customer"));
-        commands.put("employeepage", new CommandProtectedPage("employeepage", "employee"));
+        commands.put("adminpage", new CommandProtectedPage("adminpage", "admin"));
+
+        //Kan ændres til CommandProtectedPage, med role "customer" hvis kunden skal være logget ind for at kunne bygge sin carport.
+        commands.put("orderpage", new CommandUnprotectedPage("orderpage"));
+        //Det er her vores input data fra "buildcarport" bliver sendt til.
+        //Ligenu er det så selvfølgelig kun folk med customer rolen der har adgang til carports bestilling.
+        commands.put("orderconfirmation", new BuildCarportCommand("orderconfirmation", "customer"));
     }
 
     public static Command fromPath(

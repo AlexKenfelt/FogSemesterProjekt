@@ -15,10 +15,10 @@
     <jsp:body>
 
         <div>
-            <c:if test="${sessionScope.role == 'employee' }">
+            <c:if test="${sessionScope.role == 'admin' }">
                 <p style="font-size: larger">This is what you can do,
-                    since your are logged in as an employee</p>
-                 <p><a href="fc/employeepage">Employee Page</a>
+                    since your are logged in as an Admin</p>
+                 <p><a href="fc/adminpage">Admin page</a>
              </c:if>
 
              <c:if test="${sessionScope.role == 'customer' }">
