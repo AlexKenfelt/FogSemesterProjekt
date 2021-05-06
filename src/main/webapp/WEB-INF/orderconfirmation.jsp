@@ -31,6 +31,7 @@
             udover i vores sessionScope. -->
         </div>
 
+        <!-- Dette her er umiddelbart ikke nødvendigt, der skal vel ikke være link tilbage til deres page.
         <div>
             <c:if test="${sessionScope.role == 'admin' }">
             <p style="font-size: larger">This is what you can do,
@@ -44,6 +45,7 @@
             <p><a href="fc/customerpage">Customer Page</a>
                 </c:if>
         </div>
+        -->
 
     </jsp:body>
 </t:genericpage>
