@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet
 {
     //This will need to be changed to your Username and Password on MySQL.
-    private final static String USER = "root";
-    private final static String PASSWORD = "?";
+    private final static String USER = "dev";
+    private final static String PASSWORD = "ax2";
     private final static String URL = "jdbc:mysql://localhost:3306/fog?serverTimezone=CET";
 
     public static Database database;

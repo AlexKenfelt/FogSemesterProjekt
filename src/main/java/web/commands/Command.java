@@ -34,6 +34,7 @@ public abstract class Command
         //Det er her vores input data fra "buildcarport" bliver sendt til.
         //Ligenu er det så selvfølgelig kun folk med customer rolen der har adgang til carports bestilling.
         commands.put("orderconfirmation", new BuildCarportCommand("orderconfirmation", "customer"));
+
     }
 
     public static Command fromPath(

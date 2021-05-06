@@ -20,8 +20,8 @@
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/styles.css">
     <meta name="theme-color" content="#7952b3">
+    <script src="https://kit.fontawesome.com/c5d38df5c3.js" crossorigin="anonymous"></script>
 </head>
-
 
 <body>
 <!--
@@ -39,11 +39,9 @@
             </p>
         </div>
 
-        <hr style=color:#0C2069>
-
         <!-- Dette kan nok sagtens gøres smartere, men der var ikke nogen navigations bar når man
         loggede ind som enten admin eller customer. -->
-        <nav class="my-2 my-md-0 me-md-3">
+        <nav class="my-2 my-md-0 me-md-3" align="Right">
             <c:if test="${sessionScope.user != null }">
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/index">Home</a>
@@ -53,11 +51,12 @@
                    href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+
             </c:if>
         </nav>
 
         <!-- Dette er den originale navigations bar du arbejdede på Maja -->
-        <nav class="my-2 my-md-0 me-md-3">
+        <nav class="my-2 my-md-0 me-md-3" align="Right">
             <c:if test="${sessionScope.user == null }">
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/index">Home</a>
@@ -67,8 +66,11 @@
                    href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+
             </c:if>
         </nav>
+
+        <hr style=color:#0C2069>
 
         <div>
             <c:if test="${sessionScope.user != null }">

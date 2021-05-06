@@ -55,6 +55,8 @@
                 </p>
             </c:if>
 
+            <br>
+
             <c:if test="${not empty param.msg}">
                 <p style="font-size: large">${param.msg}</p>
             </c:if>

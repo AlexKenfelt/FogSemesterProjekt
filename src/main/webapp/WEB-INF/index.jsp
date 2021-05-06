@@ -14,18 +14,34 @@
 
     <jsp:body>
 
-        <div>
-            <c:if test="${sessionScope.role == 'admin' }">
-                <p style="font-size: larger">This is what you can do,
-                    since your are logged in as an Admin</p>
-                 <p><a href="fc/adminpage">Admin page</a>
-             </c:if>
+        <div class="row">
 
-             <c:if test="${sessionScope.role == 'customer' }">
-                <p style="font-size: larger">This is what you can do, since your
-                    are logged in as a customer</p>
-                <p><a href="fc/customerpage">Customer Page</a>
-            </c:if>
+            <div class="col-4 mx-auto text-center">
+                <h2> Bestil din carport
+                    <a href="${pageContext.request.contextPath}/fc/orderpage"> her</a>
+                </h2>
+
+
+
+                <img src="${pageContext.request.contextPath}/images/Carport.png" class="img-fluid mb-4 text-center"
+                     style="text-align: center"/>
+
+                <div>
+                    <c:if test="${sessionScope.role == 'admin' }">
+                    <p style="font-size: larger">This is what you can do,
+                        since your are logged in as an Admin</p>
+                    <p><a href="fc/adminpage">Admin page</a>
+                        </c:if>
+
+                        <c:if test="${sessionScope.role == 'customer' }">
+
+                    <p><a href="fc/customerpage">Customer Page</a>
+                        </c:if>
+                </div>
+
+            </div>
+
+
         </div>
 
     </jsp:body>
