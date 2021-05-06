@@ -29,9 +29,10 @@ public abstract class Command
         commands.put("customerpage", new CommandProtectedPage("customerpage", "customer"));
         commands.put("adminpage", new CommandProtectedPage("adminpage", "admin"));
 
-        //Kan ændres til CommandProtectedPage, med role "customer" hvis kunden skal være logget ind for at kunne bygge sin carport.
-        commands.put("orderpage", new CommandUnprotectedPage("orderpage"));
-        //Det er her vores input data fra "buildcarport" bliver sendt til.
+        //Her er vores orderpage blevet sat til en "CommandProtectedPage" så man skal være logget ind for at kunne få
+        //lov til at bestille en carport.
+        commands.put("orderpage", new CommandProtectedPage("orderpage", "customer"));
+        //Det er her vores input data fra "orderpage" bliver sendt til.
         //Ligenu er det så selvfølgelig kun folk med customer rolen der har adgang til carports bestilling.
         commands.put("orderconfirmation", new BuildCarportCommand("orderconfirmation", "customer"));
     }
@@ -56,5 +57,4 @@ public abstract class Command
             HttpServletRequest request,
             HttpServletResponse response)
             throws UserException;
-
 }
