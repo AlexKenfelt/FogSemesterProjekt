@@ -51,7 +51,6 @@
                    href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
-
             </c:if>
         </nav>
 
@@ -96,13 +95,21 @@
 </div>
 
 <!-- Footer -->
-<footer>
-    <div class="container">
+<div class="container">
+<footer class="page-footer font-small blue myfooter">
+    <div class="footer-copyright text-center py-3">
+        <img src="${pageContext.request.contextPath}/images/1.png" style="width: 100%;">
+        <div class="centered">Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439</div>
+    </div>
+    <%--<div class="container">
         <br>
         <hr style=color:#0C2069>
-        <img src="${pageContext.request.contextPath}/images/1.png" class="img-fluid" alt="Responsive image">
+        <img src="${pageContext.request.contextPath}/images/1.png" class="img-fluid" alt="Responsive image" style="width:100%;">
+        <div class="bottom-left">
+        </div>
         <jsp:invoke fragment="footer"/>
-    </div>
+    </div>--%>
 </footer>
+</div>
 </body>
 </html>
