@@ -18,7 +18,7 @@
 
             <div class="col-4 mx-auto text-center">
                 <h2> Bestil din carport
-                    <a href="${pageContext.request.contextPath}/fc/orderpage"> her</a>
+                    <a href="${pageContext.request.contextPath}/fc/loginpage"> her</a>
                 </h2>
 
 
