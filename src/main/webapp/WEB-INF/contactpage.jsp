@@ -11,14 +11,14 @@
         <div class="row">
 
             <div class="">
-                <h2>Kontakt</h2>
+                <h2 style="color:#0C2069">Kontakt </h2>
                 <p>Vores telefonomstilling webshop support er åben i tidsrummet
                     7:00 - 16:00 mandag til fredag
 
                     I weekender og på helligdage er telefonerne åbne i butikkernes åbningstider.
                     Se åbningstider under de respektive afdelinger.</p>
                 <div class="xhtml-string">
-                    <h3>Telefon</h3>
+                    <h3 style="color:#0C2069">Telefon</h3>
                     <p>Vores&nbsp;telefonomstilling webshop support er åben&nbsp;i tidsrummet<br/>7:00 - 16:00 mandag
                         til fredag</p>
                     <p>I weekender og på helligdage er telefonerne&nbsp;åbne&nbsp;i butikkernes åbningstider.<br/>Se
@@ -80,20 +80,18 @@
                         </tbody>
                     </table>
                     <br>
-                    <h3>Henvendelser vedr. ordrer</h3>
+                    <h3 style="color:#0C2069">Henvendelser vedr. ordrer</h3>
                     <p>Ændringer eller spørgsmål&nbsp;til en afgivet ordre, skal rettes telefonisk direkte til den
                         afdeling, der er anført på din ordrebekræftelse fra Fog<br/>Vi kan desværre ikke garantere, at
                         der reageres rettidigt på henvendelser på e-mail vedrørende ordrer.</p>
-                    <h3>Henvendelser på e-mail</h3>
+                    <h3 style="color:#0C2069">Henvendelser på e-mail</h3>
                     <p>Du kan maile til info@johannesfog.dk.<br/>Vi foretrækker dog, at du benytter vores "Spørg Fog"
                         funktion, hvis du har konkrete spørgsmål omkring produkter eller andre henvendelser. Så
                         videresendes din henvendelse til en relevant person til besvarelse og det overvåges, at der
                         bliver besvaret.<br/>Henvendelser besvares på hverdage og kan forventes besvaret inden for 3
                         hverdage.</p>
-
                 </div>
             </div>
-
         </div>
 
         <hr style=color:#0C2069>

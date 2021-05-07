@@ -17,8 +17,8 @@
         <div class="row">
 
             <div class="col-4 mx-auto text-center">
-                <h2> Bestil din carport
-                    <a href="${pageContext.request.contextPath}/fc/loginpage"> her</a>
+                <h2 style="color:#0C2069"; >Bestil din carport
+                    <a style="color: #0C2069" href="${pageContext.request.contextPath}/fc/loginpage"> her</a>
                 </h2>
 
 

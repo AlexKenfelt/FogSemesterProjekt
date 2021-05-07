@@ -10,6 +10,8 @@
     </jsp:attribute>
     <jsp:body>
         <div>
+            <h2 style="color:#0C2069"; >Sign up</h2>
+            <br>
             <form name="login" action="${pageContext.request.contextPath}/fc/registercommand" method="POST">
                 <div class="row mb-3">
                     <label class="col-sm-1 col-form-label" for="email">Email</label>
