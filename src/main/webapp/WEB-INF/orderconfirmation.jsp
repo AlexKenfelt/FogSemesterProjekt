@@ -25,8 +25,8 @@
             <p style="font-size: larger"> Vi vil nu behandle din anmodning om en carport med målene: </p>
             <!-- Her requester vi om den data kunden indtastede på orderpage og der blev
             behandlet i vores BuildCarportCommand klasse. Og så bliver den displayet her -->
-            <p style="font-size: larger"> højde: ${requestScope.height} </p>
             <p style="font-size: larger"> bredde: ${requestScope.width} </p>
+            <p style="font-size: larger"> højde: ${requestScope.length} </p>
             <!-- Dette her data har ikke noget med databasen at gøre, så ingen data bliver gemt
             udover i vores sessionScope. -->
         </div>
