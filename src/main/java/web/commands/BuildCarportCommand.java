@@ -32,6 +32,14 @@ public class BuildCarportCommand extends CommandProtectedPage {
         //Og sætter den som attribute til den oprettede String,
         // så den kan kaldes på vores orderconfirmation page.
 
+        // if statment der tjekker købknap
+        if (request.getParameter("buy")!= null){
+            try {
+                orderFacade.createOrder(order);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return pageToShow;
     }
 }
