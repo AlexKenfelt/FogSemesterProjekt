@@ -31,8 +31,7 @@
 <div class="container">
     <img src="${pageContext.request.contextPath}/images/header.png" class="img-fluid mb-4"/>
 
-    <header class=""
-            style="align: center;">
+    <header class="" style="align: center;">
         <div class="h5 my-0 me-md-auto fw-normal">
             <p style="font-size: larger">
                 <jsp:invoke fragment="header"/>
@@ -51,6 +50,8 @@
                    href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/contactpage">Kontakt</a>
             </c:if>
         </nav>
 
@@ -65,6 +66,8 @@
                    href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/contactpage">Kontakt</a>
 
             </c:if>
         </nav>
