@@ -39,6 +39,8 @@
             </p>
         </div>
 
+
+
         <!-- Dette kan nok sagtens gøres smartere, men der var ikke nogen navigations bar når man
         loggede ind som enten admin eller customer. -->
         <nav class="my-2 my-md-0 me-md-3" align="Right">
@@ -48,9 +50,7 @@
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/orderpage">Byg din carport</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
-                   href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
-                <a type="button" class="btn btn-sm  btn-outline-secondary"
-                   href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+                   href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
             </c:if>
         </nav>
 
