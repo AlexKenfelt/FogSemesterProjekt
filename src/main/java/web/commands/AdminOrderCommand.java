@@ -2,7 +2,6 @@ package web.commands;
 
 import business.entities.Order;
 import business.exceptions.UserException;
-import business.persistence.Database;
 import business.services.OrderFacade;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,9 +25,15 @@ public class AdminOrderCommand extends CommandProtectedPage {
 
         session.setAttribute("orderList", orderList);
 
-        String deleteId = request.getParameter("delete");
+        int orderId = 5; //orderFacade.getOrderIdByTimestamp();
+
+        if (request.getParameter("confirm") != null) {
+            orderFacade.updateOrderStatus(orderId);
+            //session.setAttribute("billOfMaterials", billOfMaterials);
+            return "status";
+        }
 
         return pageToShow;
     }
 
-}
+    }

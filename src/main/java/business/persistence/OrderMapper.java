@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderMapper {
+
     Database database;
 
     public OrderMapper(Database database) {
@@ -32,7 +33,6 @@ public class OrderMapper {
         } catch (SQLException | UserException ex) {
             throw new Exception(ex.getMessage());
         }
-
     }
 
     public List<Order> getAllOrders() throws UserException {
@@ -41,23 +41,18 @@ public class OrderMapper {
         try (Connection connection = database.connect()) {
             String sql = "SELECT * FROM orders WHERE status = 'pending'";
 
-
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     int user_id = rs.getInt("user_id");
-                    int partlist_id = rs.getInt("partlist_id");
                     int id = rs.getInt("id");
                     double width = rs.getDouble("width");
                     double length = rs.getDouble("length");
                     String status = rs.getString("status");
                     User user = new User(user_id);
-                    PartListId partlistid = new PartListId(partlist_id);
-                    Timestamp timestamp = rs.getTimestamp("order_time");
+                    Timestamp timestamp = rs.getTimestamp("timestamp");
 
-
-                    orderList.add(new Order(id, width, length, status, user, partlistid, timestamp));
-
+                    orderList.add(new Order(id, width, length, status, user, timestamp));
                 }
                 return orderList;
             } catch (SQLException ex) {
@@ -66,9 +61,22 @@ public class OrderMapper {
         } catch (SQLException ex) {
             throw new UserException("Connection to database could not be established");
         }
-
     }
 
+    public void updateOrderStatus(int id) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "UPDATE orders SET status = \"confirmed\" WHERE id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, id);
+                ps.executeUpdate();
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+    }
 }
 
 

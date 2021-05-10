@@ -11,6 +11,7 @@
     </jsp:attribute>
 
     <jsp:body>
+        <form method="post" action="${pageContext.request.contextPath}/fc/adminpage">
         <h1>Hello ${sessionScope.email} </h1>
         Admin siden
         <table class="table">
@@ -21,7 +22,6 @@
                 <th>Længde</th>
                 <th>Status</th>
                 <th>Bruger</th>
-                <th>Stykliste</th>
                 <th>Tidspunkt</th>
             </thead>
             </tr>
@@ -34,14 +34,14 @@
                     <td>${order.length}</td>
                     <td>${order.status}</td>
                     <td>${order.user}</td>
-                    <td>${order.partListId}</td>
                     <td>${order.timestamp}</td>
                 </tr>
             </c:forEach>
+
             </tbody>
         </table>
 
 
-
+        </form>
     </jsp:body>
 </t:genericpage>
