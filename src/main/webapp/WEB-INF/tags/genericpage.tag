@@ -48,9 +48,9 @@
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/orderpage">Byg din carport</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
-                   href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
-                <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/contactpage">Kontakt</a>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
 
             </c:if>
         </nav>
@@ -58,16 +58,16 @@
         <!-- Dette er den originale navigations bar du arbejdede på Maja -->
         <nav class="my-2 my-md-0 me-md-0" align="Right">
             <c:if test="${sessionScope.user == null }">
-                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                <a type="button" class="btn btn-sm  btn-outline-secondary" style="background-color: #0C2069; color: white"
                    href="${pageContext.request.contextPath}/fc/index">Home</a>
-                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                <a type="button" class="btn btn-sm  btn-outline-secondary mybtn"
                    href="${pageContext.request.contextPath}/fc/loginpage">Byg din carport</a>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/contactpage">Kontakt</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
-                <a type="button" class="btn btn-sm  btn-outline-secondary"
-                   href="${pageContext.request.contextPath}/fc/contactpage">Kontakt</a>
 
             </c:if>
         </nav>
