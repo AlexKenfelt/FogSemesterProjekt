@@ -1,9 +1,12 @@
 package business.persistence;
 
 import business.entities.Order;
+import business.entities.User;
 import business.exceptions.UserException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderMapper {
     Database database;
@@ -30,4 +33,7 @@ public class OrderMapper {
 
             }
 
-        }
+    }
+
+
+
