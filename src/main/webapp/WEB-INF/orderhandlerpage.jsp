@@ -14,13 +14,17 @@
         <form method="post" action="${pageContext.request.contextPath}/fc/adminpage">
             <h1>Hello ${sessionScope.email} </h1>
             Admin siden
-          <!--  <script language="javascript" type="text/javascript">
+
+            <!--  Dette fungerer ikke.
+            <script language="javascript" type="text/javascript">
                 function doSubmit() {
                     window.open("orderhandlerpage.jsp", "_self");
                 }
                 <html:button property="button" onclick="doSubmit();" value="Rediger ordre"/>
             </script> -->
             <a href="orderhandlerpage.jsp">Rediger ordre</a>
+
+
             <table class="table">
                 <thead>
                 <tr>

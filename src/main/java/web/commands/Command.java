@@ -28,6 +28,8 @@ public abstract class Command {
         commands.put("adminpage", new CommandProtectedPage("adminpage", "admin"));
         commands.put("contactpage", new CommandUnprotectedPage("contactpage"));
 
+        commands.put("orderhandlerpage", new UpdateStatusCommand("orderhandlerpage", "admin"));
+
         commands.put("adminpage", new AdminOrderCommand("adminpage", "admin"));
 
         //Her er vores orderpage blevet sat til en "CommandProtectedPage" så man skal være logget ind for at kunne få

@@ -25,4 +25,8 @@ public class OrderFacade {
     public void updateOrderStatus(int orderId) throws UserException {
         orderMapper.updateOrderStatus(orderId);
     }
+
+    public int getOrderId() throws UserException {
+        return orderMapper.getOrderId();
+    }
 }

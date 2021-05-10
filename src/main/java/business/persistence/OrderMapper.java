@@ -77,9 +77,22 @@ public class OrderMapper {
             throw new UserException("Connection to database could not be established");
         }
     }
+
+    public int getOrderId() throws UserException {
+        int id = 0;
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM orders ORDER BY id";
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    id = rs.getInt("id");
+                }
+                return id;
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+    }
 }
-
-
-
-
-
