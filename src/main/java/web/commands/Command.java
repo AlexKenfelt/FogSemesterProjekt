@@ -29,6 +29,7 @@ public abstract class Command
         commands.put("customerpage", new CommandProtectedPage("customerpage", "customer"));
         commands.put("adminpage", new CommandProtectedPage("adminpage", "admin"));
         commands.put("contactpage", new CommandUnprotectedPage("contactpage"));
+        commands.put("adminpage", new CommandProtectedPage("adminpage", "admin"));
 
         //Her er vores orderpage blevet sat til en "CommandProtectedPage" så man skal være logget ind for at kunne få
         //lov til at bestille en carport.

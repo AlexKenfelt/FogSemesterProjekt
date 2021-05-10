@@ -12,6 +12,36 @@
 
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as an Admin of our wonderful site.
+        Admin siden
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bredde</th>
+                <th>Længde</th>
+                <th>Status</th>
+                <th>Bruger</th>
+                <th>Stykliste</th>
+                <th>Tidspunkt</th>
+            </thead>
+            </tr>
+            <tbody>
+            <c:forEach var="order" items="${sessionScope.orderList}">
+
+                <tr>
+                    <td>${order.id}</td>
+                    <td>${order.width}</td>
+                    <td>${order.length}</td>
+                    <td>${order.status}</td>
+                    <td>${order.user}</td>
+                    <td>${order.partListId}</td>
+                    <td>${order.timestamp}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+
+
+
     </jsp:body>
 </t:genericpage>
