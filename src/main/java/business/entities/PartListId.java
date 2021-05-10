@@ -19,5 +19,14 @@ public class PartListId
         this.width = width;
         this.parts_id = parts_id;
     }
+    public PartListId(int id)
+    {
+        this.id = id;
+        this.description = "";
+        this.price = null;
+        this.length = 0;
+        this.width = 0;
+        this.parts_id = 0;
+    }
 }
 

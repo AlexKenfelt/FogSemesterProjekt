@@ -8,13 +8,25 @@ public class Order {
     private double length;
     private String status;
     private User user;
+    private PartListId partListId;
     private Timestamp timestamp;
 
+    public Order(int id, double width, double length, String status, User user, PartListId partListId, Timestamp timestamp) {
+        this.id = id;
+        this.width = width;
+        this.length = length;
+        this.status = "pending";
+        this.user = user;
+        this.partListId = partListId;
+        this.timestamp = timestamp;
+    }
 
     public Order(double width, double length) {
         this.width = width;
         this.length = length;
     }
+
+
 
     public int getId() {
         return id;

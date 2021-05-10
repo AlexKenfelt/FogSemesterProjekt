@@ -2,6 +2,7 @@ package business.persistence;
 
 import business.entities.Order;
 import business.entities.PartListId;
+
 import business.entities.User;
 import business.exceptions.UserException;
 
@@ -40,18 +41,22 @@ public class OrderMapper {
         try (Connection connection = database.connect()) {
             String sql = "SELECT * FROM orders WHERE status = 'pending'";
 
+
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
+                    int user_id = rs.getInt("user_id");
+                    int partlist_id = rs.getInt("partlist_id");
                     int id = rs.getInt("id");
                     double width = rs.getDouble("width");
                     double length = rs.getDouble("length");
                     String status = rs.getString("status");
-                    User user_id = new User(fk_user_id);
-                    PartListId partlist_id = new PartListId(fk_partlist_id);
+                    User user = new User(user_id);
+                    PartListId partlistid = new PartListId(partlist_id);
                     Timestamp timestamp = rs.getTimestamp("order_time");
 
-                    orderList.add(new Order(id, width, length, status, user_id, partlist_id, timestamp));
+
+                    orderList.add(new Order(id, width, length, status, user, partlistid, timestamp));
 
                 }
                 return orderList;
@@ -65,5 +70,8 @@ public class OrderMapper {
     }
 
 }
+
+
+
 
 
