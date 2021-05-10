@@ -23,9 +23,9 @@
 
         <form name="orderconfirmation" action="${pageContext.request.contextPath}/fc/orderconfirmation" method="POST">
             <div class="row mb-3">
-                <label class="col-sm-1 col-form-label" for="height">Højde</label>
+                <label class="col-sm-1 col-form-label" for="length">Længde</label>
                 <div class="col-sm-4">
-                    <input class="form-control" type="number" step="1" name="height" id="height"
+                    <input class="form-control" type="number" step="1" name="length" id="length"
                            maxlength="6" placeholder="Enter number in cm">
                     <!-- Her sikre vi os at man kun kan indtaste integers som målene til en carport, ved at
                     sige (type="number" step="1"), derefter sætter vi en maks længde på (6) for at sikre os
@@ -60,7 +60,7 @@
             <c:if test="${not empty param.msg}">
                 <p style="font-size: large">${param.msg}</p>
             </c:if>
-            <button class="btn btn-primary" type="submit" value="order">Bestil</button>
+            <button name="buy"  class="btn btn-primary" type="submit" value="order">Bestil</button>
         </form>
 
         <!-- Dette her er umiddelbart ikke nødvendigt, der skal vel ikke være link tilbage til deres page.
