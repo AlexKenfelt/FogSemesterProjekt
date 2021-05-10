@@ -33,17 +33,17 @@
 
         <!-- Dette her er umiddelbart ikke nødvendigt, der skal vel ikke være link tilbage til deres page.
         <div>
-            <c:if test="${sessionScope.role == 'admin' }">
+        <c:if test="${sessionScope.role == 'admin' }">
             <p style="font-size: larger">This is what you can do,
-                since your are logged in as an Admin</p>
+            since your are logged in as an Admin</p>
             <p><a href="fc/adminpage">Admin page</a>
-                </c:if>
+        </c:if>
 
-                <c:if test="${sessionScope.role == 'customer' }">
+        <c:if test="${sessionScope.role == 'customer' }">
             <p style="font-size: larger">This is what you can do, since your
-                are logged in as a customer</p>
+            are logged in as a customer</p>
             <p><a href="fc/customerpage">Customer Page</a>
-                </c:if>
+        </c:if>
         </div>
         -->
 

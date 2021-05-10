@@ -17,10 +17,9 @@
         <div class="row">
 
             <div class="col-4 mx-auto text-center">
-                <h2 style="color:#0C2069"; >Bestil din carport
+                <h2 style="color:#0C2069" ;>Bestil din carport
                     <a style="color: #0C2069" href="${pageContext.request.contextPath}/fc/loginpage"> her</a>
                 </h2>
-
 
 
                 <img src="${pageContext.request.contextPath}/images/Carport.png" class="img-fluid mb-4 text-center"

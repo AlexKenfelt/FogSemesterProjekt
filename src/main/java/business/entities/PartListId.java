@@ -2,8 +2,7 @@ package business.entities;
 
 import java.math.BigDecimal;
 
-public class PartListId
-{
+public class PartListId {
     private int id;
     private String description;
     private BigDecimal price;
@@ -19,8 +18,8 @@ public class PartListId
         this.width = width;
         this.parts_id = parts_id;
     }
-    public PartListId(int id)
-    {
+
+    public PartListId(int id) {
         this.id = id;
         this.description = "";
         this.price = null;

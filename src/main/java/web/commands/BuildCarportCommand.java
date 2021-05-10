@@ -12,7 +12,10 @@ public class BuildCarportCommand extends CommandProtectedPage {
 
     OrderFacade orderFacade = new OrderFacade(database);
 
-    public BuildCarportCommand(String pageToShow, String role) { super(pageToShow, role); }
+    public BuildCarportCommand(String pageToShow, String role) {
+        super(pageToShow, role);
+    }
+
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 
@@ -21,10 +24,10 @@ public class BuildCarportCommand extends CommandProtectedPage {
         double width = Double.parseDouble(request.getParameter("width"));
         request.setAttribute("width", width);
 
-        HttpSession session= request.getSession();
+        HttpSession session = request.getSession();
         Order order = (Order) session.getAttribute("order");
 
-        if (order == null){
+        if (order == null) {
             order = new Order(length, width);
         }
 
@@ -33,7 +36,7 @@ public class BuildCarportCommand extends CommandProtectedPage {
         // så den kan kaldes på vores orderconfirmation page.
 
         // if statment der tjekker købknap
-        if (request.getParameter("buy")!= null){
+        if (request.getParameter("buy") != null) {
             try {
                 orderFacade.createOrder(order);
             } catch (Exception e) {

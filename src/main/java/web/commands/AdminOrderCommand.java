@@ -36,4 +36,4 @@ public class AdminOrderCommand extends CommandProtectedPage {
         return pageToShow;
     }
 
-    }
+}

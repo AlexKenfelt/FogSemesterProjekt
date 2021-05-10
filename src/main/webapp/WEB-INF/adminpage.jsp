@@ -12,34 +12,34 @@
 
     <jsp:body>
         <form method="post" action="${pageContext.request.contextPath}/fc/adminpage">
-        <h1>Hello ${sessionScope.email} </h1>
-        Admin siden
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Bredde</th>
-                <th>Længde</th>
-                <th>Status</th>
-                <th>Bruger</th>
-                <th>Tidspunkt</th>
-            </thead>
-            </tr>
-            <tbody>
-            <c:forEach var="order" items="${sessionScope.orderList}">
-
+            <h1>Hello ${sessionScope.email} </h1>
+            Admin siden
+            <table class="table">
+                <thead>
                 <tr>
-                    <td>${order.id}</td>
-                    <td>${order.width}</td>
-                    <td>${order.length}</td>
-                    <td>${order.status}</td>
-                    <td>${order.user}</td>
-                    <td>${order.timestamp}</td>
+                    <th>Id</th>
+                    <th>Bredde</th>
+                    <th>Længde</th>
+                    <th>Status</th>
+                    <th>Bruger</th>
+                    <th>Tidspunkt</th>
+                </thead>
                 </tr>
-            </c:forEach>
+                <tbody>
+                <c:forEach var="order" items="${sessionScope.orderList}">
 
-            </tbody>
-        </table>
+                    <tr>
+                        <td>${order.id}</td>
+                        <td>${order.width}</td>
+                        <td>${order.length}</td>
+                        <td>${order.status}</td>
+                        <td>${order.user}</td>
+                        <td>${order.timestamp}</td>
+                    </tr>
+                </c:forEach>
+
+                </tbody>
+            </table>
 
 
         </form>

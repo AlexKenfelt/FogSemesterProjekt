@@ -10,14 +10,15 @@ import java.util.List;
 public class OrderFacade {
     OrderMapper orderMapper;
 
-    public OrderFacade(Database database){
+    public OrderFacade(Database database) {
         orderMapper = new OrderMapper(database);
     }
-    public void createOrder (Order order) throws Exception{
+
+    public void createOrder(Order order) throws Exception {
         orderMapper.createOrder(order);
     }
-    public List<Order> getAllOrders() throws UserException
-    {
+
+    public List<Order> getAllOrders() throws UserException {
         return orderMapper.getAllOrders();
     }
 

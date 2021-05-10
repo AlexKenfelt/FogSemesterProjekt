@@ -10,7 +10,7 @@ public class Order {
     private User user;
     private Timestamp timestamp;
 
-    public Order(int id, double width, double length, String status, User user,  Timestamp timestamp) {
+    public Order(int id, double width, double length, String status, User user, Timestamp timestamp) {
         this.id = id;
         this.width = width;
         this.length = length;
@@ -23,7 +23,6 @@ public class Order {
         this.width = width;
         this.length = length;
     }
-
 
 
     public int getId() {

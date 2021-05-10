@@ -39,17 +39,17 @@
                            maxlength="6" placeholder="Enter number in cm">
                 </div>
             </div>
-        <!-- En lille checkbox til om man vil have skur med eller ej.
-        Dette er ikke en funktion vi fokuserer på endnu, så den gør ikke
-        noget i praksis. -->
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="shed"/>
-            <label class="form-check-label" for="shed">
-                Skal der være skur med?
-            </label>
-        </div>
+            <!-- En lille checkbox til om man vil have skur med eller ej.
+            Dette er ikke en funktion vi fokuserer på endnu, så den gør ikke
+            noget i praksis. -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="shed"/>
+                <label class="form-check-label" for="shed">
+                    Skal der være skur med?
+                </label>
+            </div>
 
-        <c:if test="${requestScope.error != null }">
+            <c:if test="${requestScope.error != null }">
                 <p style="color:red">
                         ${requestScope.error}
                 </p>
@@ -60,22 +60,22 @@
             <c:if test="${not empty param.msg}">
                 <p style="font-size: large">${param.msg}</p>
             </c:if>
-            <button name="buy"  class="btn btn-primary" type="submit" value="order">Bestil</button>
+            <button name="buy" class="btn btn-primary" type="submit" value="order">Bestil</button>
         </form>
 
         <!-- Dette her er umiddelbart ikke nødvendigt, der skal vel ikke være link tilbage til deres page.
         <div>
-            <c:if test="${sessionScope.role == 'admin' }">
+        <c:if test="${sessionScope.role == 'admin' }">
             <p style="font-size: larger">This is what you can do,
-                since your are logged in as an Admin</p>
+            since your are logged in as an Admin</p>
             <p><a href="fc/adminpage">Admin page</a>
-                </c:if>
+        </c:if>
 
-                <c:if test="${sessionScope.role == 'customer' }">
+        <c:if test="${sessionScope.role == 'customer' }">
             <p style="font-size: larger">This is what you can do, since your
-                are logged in as a customer</p>
+            are logged in as a customer</p>
             <p><a href="fc/customerpage">Customer Page</a>
-                </c:if>
+        </c:if>
         </div>
         -->
 
