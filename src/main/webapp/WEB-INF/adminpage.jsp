@@ -20,7 +20,7 @@
                 }
                 <html:button property="button" onclick="doSubmit();" value="Rediger ordre"/>
             </script> -->
-            <a href="orderhandlerpage.jsp">Rediger ordre</a>
+            <a href="orderhandlerpage">Rediger ordre</a>
             <table class="table">
                 <thead>
                 <tr>

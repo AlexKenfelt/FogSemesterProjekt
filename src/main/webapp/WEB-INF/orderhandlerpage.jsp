@@ -11,19 +11,9 @@
     </jsp:attribute>
 
     <jsp:body>
-        <form method="post" action="${pageContext.request.contextPath}/fc/adminpage">
+        <form method="post" action="${pageContext.request.contextPath}/fc/orderhandlerpage">
             <h1>Hello ${sessionScope.email} </h1>
             Admin siden
-
-            <!--  Dette fungerer ikke.
-            <script language="javascript" type="text/javascript">
-                function doSubmit() {
-                    window.open("orderhandlerpage.jsp", "_self");
-                }
-                <html:button property="button" onclick="doSubmit();" value="Rediger ordre"/>
-            </script> -->
-            <a href="orderhandlerpage.jsp">Rediger ordre</a>
-
 
             <table class="table">
                 <thead>
