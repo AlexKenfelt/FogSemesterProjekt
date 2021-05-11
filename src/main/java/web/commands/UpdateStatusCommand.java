@@ -22,7 +22,7 @@ public class UpdateStatusCommand extends CommandProtectedPage {
 
         int id = orderFacade.getOrderId();
 
-        //Confirm order
+        //This is where we confirm the orders.
         if (request.getParameter("confirm") != null) {
             orderFacade.updateOrderStatus(id);
             return pageToShow;
