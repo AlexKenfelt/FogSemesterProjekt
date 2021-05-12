@@ -3,6 +3,7 @@ package web.commands;
 import business.entities.Bom;
 import business.entities.Order;
 import business.persistence.Database;
+import business.services.BomService;
 import business.services.OrderFacade;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 public class BuildCarportCommand extends CommandProtectedPage {
 
     OrderFacade orderFacade = new OrderFacade(database);
+    BomService bomService;
 
     public BuildCarportCommand(String pageToShow, String role) {
         super(pageToShow, role);
@@ -42,10 +44,10 @@ public class BuildCarportCommand extends CommandProtectedPage {
         if(request.getParameter("submit") != null){
 
             //Stoplerne tilføjes
-            bom.addToBill(bomService.calculatePosts(width, length));
+            bom.addToBill(bomService.calculatePosts(length));
 
             // Spær tilføjelse
-            bom.addToBill((bomService.calculateBeams(width, length));
+            bom.addToBill((bomService.calculateBeams(length));
 
             // remme tilføjes
             bom.addToBill(bomService.calculateRafters(width, length));

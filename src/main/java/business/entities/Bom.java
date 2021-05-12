@@ -8,9 +8,19 @@ public class Bom {
     CarportItems carportItems;
 
 
-    private List<CarportItems> billOfMaterials;
+    private List<CarportItems> bomLines;
 
     public Bom() {
-        this.billOfMaterials = new ArrayList<>();
+        this.bomLines = new ArrayList<>();
     }
+
+    public List<CarportItems> getCarportItems() {
+
+        return bomLines;
+    }
+
+    public void addToBill (CarportItems carportItems){
+        bomLines.add(carportItems);
+    }
+
 }
