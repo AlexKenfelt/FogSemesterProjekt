@@ -1,6 +1,6 @@
 package business.persistence;
 
-import business.entities.CarportItems;
+import business.entities.Parts;
 import business.exceptions.UserException;
 
 import java.sql.Connection;
@@ -10,45 +10,37 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BomMapper {
+public class PartsMapper {
 
     private Database database;
 
-    public BomMapper(Database database) {
+    public PartsMapper(Database database) {
         this.database = database;
     }
 
-    public List<CarportItems> getBillOfMaterials(int id) throws UserException {
-        List<CarportItems> carportItems = new ArrayList<>();
+    public List<Parts> getAllParts() throws UserException {
+        List<Parts> partsList = new ArrayList<>();
         try (Connection connection = database.connect()) {
-            String sql = "SELECT * FROM bom_items WHERE order_id = ?";
+            String sql = "SELECT * FROM parts";
+
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, id);
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    //TODO: skal have indskrevet parameter her
-                }
+                    int id = rs.getInt(1);
+                    String name = rs.getString(2);
+                    int partsPerUnit = rs.getInt(3);
+                    String unit = rs.getString(4);
 
+                    Parts tmpParts = new Parts(id, name, partsPerUnit, unit);
+                    partsList.add(tmpParts);
+                }
+                return partsList;
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
-        } catch (SQLException | UserException ex) {
+        } catch (SQLException ex) {
             throw new UserException("Connection to database could not be established");
         }
-        return carportItems;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

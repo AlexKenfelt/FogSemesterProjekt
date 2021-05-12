@@ -1,5 +1,6 @@
 package business.persistence;
 
+import business.entities.CarportItems;
 import business.entities.Order;
 
 import business.entities.User;
@@ -11,23 +12,35 @@ import java.util.List;
 
 public class OrderMapper {
 
-    Database database;
+   private Database database;
 
     public OrderMapper(Database database) {
         this.database = database;
     }
 
-    public void createOrder(Order order) throws Exception {
+    public void createOrder(Order order, List <CarportItems> bomlines) throws Exception {
+        int orderId = 0;
         try (Connection connection = database.connect()) {
-            String sql = "INSERT INTO orders (width, length) VALUES (?,?)";
-
+            String sql = "INSERT INTO orders (width, length, status, id, timestamp) VALUES (?,?,?,?,?)";
+            User user = null;
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setDouble(1, order.getWidth());
                 ps.setDouble(2, order.getLength());
+                ps.setString(3, order.getStatus());
+                ps.setInt(4,order.getId());
+                ps.setTimestamp(5,order.getTimestamp());
+
                 ps.executeUpdate();
+               ResultSet ids = ps.getGeneratedKeys();
+                ids.next();
+                orderId = ids.getInt(1);
 
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
+            }
+            //Hvorfor er der en fejl her?
+            for (CarportItems carportItems : bomlines ) {
+                insertIntoBomItems(orderId, carportItems);
             }
         } catch (SQLException | UserException ex) {
             throw new Exception(ex.getMessage());
@@ -36,6 +49,7 @@ public class OrderMapper {
 
     public List<Order> getAllOrders() throws UserException {
         List<Order> orderList = new ArrayList<>();
+
 
         try (Connection connection = database.connect()) {
             String sql = "SELECT * FROM orders WHERE status = 'pending'";
@@ -57,10 +71,32 @@ public class OrderMapper {
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
+
         } catch (SQLException ex) {
             throw new UserException("Connection to database could not be established");
         }
     }
+
+    public void insertIntoBomItems (int orderId, CarportItems carportItems) throws UserException {
+        try (Connection connection = database.connect()){
+            String sql = "INSERT INTO partlistitem (id, description, price, length, parts_id, order_id) VALUES (?,?,?,?,?,?)";
+        try(PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
+                ps.setInt(1,carportItems.getId());
+                ps.setString(2, carportItems.getDescription());
+                ps.setBigDecimal(3, carportItems.getPrice() );
+                ps.setDouble(4,carportItems.getLength());
+                ps.setInt(5,carportItems.getParts_id());
+                ps.setInt(6,carportItems.getOrder_id());
+                ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
+    }
+
 
     public void updateOrderStatus(int id) throws UserException {
         try (Connection connection = database.connect()) {

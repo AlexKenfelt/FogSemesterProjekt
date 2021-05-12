@@ -1,5 +1,6 @@
 package business.services;
 
+import business.entities.CarportItems;
 import business.entities.Order;
 import business.exceptions.UserException;
 import business.persistence.Database;
@@ -14,8 +15,8 @@ public class OrderFacade {
         orderMapper = new OrderMapper(database);
     }
 
-    public void createOrder(Order order) throws Exception {
-        orderMapper.createOrder(order);
+    public void createOrder(Order order, List <CarportItems> bomlines) throws Exception {
+        orderMapper.createOrder(order, bomlines);
     }
 
     public List<Order> getAllOrders() throws UserException {
