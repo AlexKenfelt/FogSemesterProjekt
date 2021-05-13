@@ -2,6 +2,7 @@ package web.commands;
 
 import business.entities.Bom;
 import business.entities.Order;
+import business.exceptions.UserException;
 import business.persistence.Database;
 import business.services.BomService;
 import business.services.OrderFacade;
@@ -20,7 +21,7 @@ public class BuildCarportCommand extends CommandProtectedPage {
     }
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
 
         double length = Double.parseDouble(request.getParameter("length"));
         request.setAttribute("length", length);
@@ -47,13 +48,13 @@ public class BuildCarportCommand extends CommandProtectedPage {
             bom.addToBill(bomService.calculatePosts(length));
 
             // Spær tilføjelse
-            bom.addToBill((bomService.calculateBeams(length));
+            bom.addToBill(bomService.calculateBeams(length));
 
             // remme tilføjes
             bom.addToBill(bomService.calculateRafters(width, length));
 
             // ordren gemmes
-            orderFacade.createOrder(
+            //orderFacade.createOrder();
         }
 
         //Her requester vi den data der bliver indtastet i vores orderpage af kunden.

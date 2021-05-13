@@ -46,6 +46,8 @@
                                 value="${order.id}">
                             Fjern
                         </button>
+                        <button name="confirm" type="submit" class="btn btn-primary checkoutbtn">Confirm order</button>
+
                     </td>
                 </tr>
             </c:forEach>

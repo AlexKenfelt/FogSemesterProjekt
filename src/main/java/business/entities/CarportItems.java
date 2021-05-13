@@ -20,8 +20,10 @@ public class CarportItems {
         this.order_id = order_id;
     }
 
-
-
+    public CarportItems(double length, int parts_id) {
+        this.length = length;
+        this.parts_id = parts_id;
+    }
 
     public int getId() {
         return id;

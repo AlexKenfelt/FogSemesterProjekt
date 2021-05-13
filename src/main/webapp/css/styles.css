@@ -26,3 +26,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.btn btn-sm btn-outline {
+    transition-duration: 0.4s;
+}
+
+.btn btn-sm btn-outline:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #0C2069;
+}

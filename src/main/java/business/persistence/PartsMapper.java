@@ -42,5 +42,30 @@ public class PartsMapper {
             throw new UserException("Connection to database could not be established");
         }
     }
-}
 
+    public Parts getPartsById(int materialId) throws UserException {
+        Parts tmpParts = null;
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM parts WHERE id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, materialId);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    int id = rs.getInt(1);
+                    String name = rs.getString(2);
+                    int parts_per_unit = rs.getInt(3);
+                    String unit = rs.getString(4);
+
+
+                    tmpParts = new Parts(id, name, parts_per_unit, unit);
+                }
+                return tmpParts;
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+    }
+}

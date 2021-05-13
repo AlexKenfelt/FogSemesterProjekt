@@ -1,6 +1,8 @@
 package business.services;
 
 import business.entities.CarportItems;
+import business.entities.Parts;
+import business.exceptions.UserException;
 import business.persistence.Database;
 
 public class BomService {
@@ -13,7 +15,13 @@ public class BomService {
     //TODO: Vi skal have 2 resultater med ... måske?
     //TODO: Noget ifht. hvor høje vores stolper er, vi har udregnet hvor mange der skal bruges men intet med højden?
     //TODO: Går vi udfra at vi kun har X antal stolper af 300 cm?
-    public CarportItems calculatePosts ( double length) {
+    public CarportItems calculatePosts ( double length) throws UserException {
+
+        Parts parts = partsFacade.getPartsById(1);
+        int parts_id = parts.getId();
+        String name = parts.getName();
+        int quantity = 4;
+
 
         //Den foreste stolpe skal sidde en meter inde.
         int frontPost = 100;
@@ -39,14 +47,19 @@ public class BomService {
         int numberOfPosts = (int)result ;
         //Dett her er det endelige resultat.
 
-        CarportItems tmpCarportItems = new CarportItems(id, description, price,length, parts_id, order_id);
+        CarportItems tmpCarportItems = new CarportItems(length, parts_id);
 
         return tmpCarportItems;
     }
 
     //TODO: Evt. sætte en maks længde på de bjælker der er på lageret.
     //TODO: fks. hvis længden på carporten er 800cm men vi kun tilbyder 600cm bjælker skal der være 2x af 600cm og 2x af 200cm.
-    public CarportItems calculateBeams (double length) {
+    public CarportItems calculateBeams (double length) throws UserException {
+
+        Parts parts = partsFacade.getPartsById(2);
+        int parts_id = parts.getId();
+        String name = parts.getName();
+        int quantity = 4;
 
         //Dette er bare en konstant.
         int multiplier = 2;
@@ -56,13 +69,18 @@ public class BomService {
         //Vi går ud fra at lageret altid har den længde bjælke på lager der skal bruges.
         numberOfBeams = ((int)length * multiplier);
 
-        CarportItems tmpCarportItems = new CarportItems(id, description, price,length, parts_id, order_id);
+        CarportItems tmpCarportItems = new CarportItems(length, parts_id);
 
         return tmpCarportItems;
     }
 
     //TODO: Kundens indtastede width til sin carport skal matche med den witdh vores spær har.
-    public CarportItems calculateRafters (double width, double length) {
+    public CarportItems calculateRafters (double width, double length) throws UserException {
+
+        Parts parts = partsFacade.getPartsById(3);
+        int parts_id = parts.getId();
+        String name = parts.getName();
+        int quantity = 4;
 
         //Dette er afstanden der skal være imellem hver spær.
         double rafterSpacing = 0.55;
@@ -73,7 +91,7 @@ public class BomService {
         //Vi tager bare og dividerer længden med, den bestemte afstand der skal være, for at få antal spær.
         numberOfRafters = ((int)length / (int)rafterSpacing );
 
-        CarportItems tmpCarportItems = new CarportItems(id, description, price,length, parts_id, order_id);
+        CarportItems tmpCarportItems = new CarportItems(length, parts_id);
 
         return tmpCarportItems;
     }

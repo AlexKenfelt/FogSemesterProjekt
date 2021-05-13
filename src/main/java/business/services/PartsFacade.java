@@ -19,4 +19,8 @@ public class PartsFacade {
         return partsMapper.getAllParts();
     }
 
+    public Parts getPartsById(int partsId) throws UserException {
+        return partsMapper.getPartsById(partsId);
+
+    }
 }
