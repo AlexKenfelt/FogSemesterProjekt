@@ -25,7 +25,7 @@ public abstract class Command {
         commands.put("registerpage", new CommandUnprotectedPage("registerpage"));
         commands.put("registercommand", new RegisterCommand(""));
         commands.put("customerpage", new CommandProtectedPage("customerpage", "customer"));
-        commands.put("adminpage", new CommandProtectedPage("adminpage", "admin"));
+        //commands.put("adminpage", new CommandProtectedPage("adminpage", "admin"));
         commands.put("contactpage", new CommandUnprotectedPage("contactpage"));
 
         commands.put("orderhandlerpage", new UpdateStatusCommand("orderhandlerpage", "admin"));
