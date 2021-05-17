@@ -14,12 +14,17 @@ public class UserMapper {
 
     public void createUser(User user) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO users (email, password, role, name, address, postal, city, phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setString(1, user.getEmail());
                 ps.setString(2, user.getPassword());
                 ps.setString(3, user.getRole());
+                ps.setString(4, user.getName());
+                ps.setString(5, user.getAddress());
+                ps.setString(6, user.getPostal());
+                ps.setString(7, user.getCity());
+                ps.setString(8, user.getPhone());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
