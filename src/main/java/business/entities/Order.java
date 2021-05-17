@@ -24,6 +24,13 @@ public class Order {
         this.length = length;
     }
 
+    public Order(double width, double length, String status, Timestamp timestamp) {
+        this.width = width;
+        this.length = length;
+        this.status = status;
+        this.timestamp = timestamp;
+    }
+
 
     public int getId() {
         return id;

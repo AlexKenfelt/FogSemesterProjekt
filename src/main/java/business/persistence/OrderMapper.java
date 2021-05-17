@@ -38,12 +38,49 @@ public class OrderMapper {
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
-            //Hvorfor er der en fejl her?
             for (CarportItems carportItems : bomlines ) {
                 insertIntoBomItems(orderId, carportItems);
             }
         } catch (SQLException | UserException ex) {
             throw new Exception(ex.getMessage());
+        }
+    }
+
+    public List<Order> getOrderByCustomerId(Integer user_id) throws UserException {
+        List<Order> orderList = new ArrayList<>();
+
+        try (Connection connection = database.connect()) {
+
+            String sql = "SELECT * FROM orders WHERE user_id = 1=1";
+
+            if(user_id != null){
+                sql += "AND user_id = ?";
+            }
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+
+                    if(user_id != null){
+                        user_id = rs.getInt("user_id");
+                    }
+
+                    //int id = rs.getInt("id");
+                    double width = rs.getDouble("width");
+                    double length = rs.getDouble("length");
+                    String status = rs.getString("status");
+                    Timestamp timestamp = rs.getTimestamp("timestamp");
+
+                    orderList.add(new Order(width, length, status, timestamp));
+                }
+                return orderList;
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
         }
     }
 

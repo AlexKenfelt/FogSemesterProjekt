@@ -30,4 +30,8 @@ public class OrderFacade {
     public int getOrderId() throws UserException {
         return orderMapper.getOrderId();
     }
+
+    public List<Order> getOrderByCustomerId(Integer user_id) throws UserException {
+        return orderMapper.getOrderByCustomerId(user_id);
+    }
 }

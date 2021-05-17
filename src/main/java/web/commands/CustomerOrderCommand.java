@@ -20,10 +20,17 @@ public class CustomerOrderCommand extends CommandProtectedPage {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
-        HttpSession session = request.getSession();
-        List<Order> orderList = orderFacade.getAllOrders();
 
-        session.setAttribute("orderList", orderList);
+        //TODO: Den kan ikke li' detteher stykke kode (java.lang.NumberFormatException: null)
+        //TODO: Kan ikke lige umiddelbart gennemskue hvordan vi ellers skal kunne få ''user_id'' med over fra vores sessionScope.
+        //TODO: Så vi kan bruge den i vores ''getOrderByCustomerId'' metode.
+
+        //int user_id = Integer.parseInt(request.getParameter("user_id"));
+        //request.setAttribute("user_id", user_id);
+        //List<Order> orderList = orderFacade.getOrderByCustomerId(user_id);
+
+        //HttpSession session = request.getSession();
+        //session.setAttribute("orderList", orderList);
 
         return pageToShow;
     }
