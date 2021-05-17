@@ -21,17 +21,52 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-1 col-form-label" for="password1">Password</label>
+                    <label class="col-sm-1 col-form-label" for="password1">Kodeord</label>
                     <div class="col-sm-4">
                         <input id="password1" class="form-control" type="password" name="password1"
                                value="${param.password1}" placeholder="Enter your password">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-1 col-form-label" for="password2">Password</label>
+                    <label class="col-sm-1 col-form-label" for="password2">Kodeord</label>
                     <div class="col-sm-4">
                         <input id="password2" class="form-control" type="password" name="password2"
                                value="${param.password2}" placeholder="Repeat the password">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label" for="name">Navn</label>
+                    <div class="col-sm-4">
+                        <input id="name" class="form-control" type="text" name="name" value="${param.name}"
+                               placeholder="Enter your first name">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label" for="address">Adresse</label>
+                    <div class="col-sm-4">
+                        <input id="address" class="form-control" type="text" name="address" value="${param.address}"
+                               placeholder="Enter a valid address">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label" for="postal">Post adresse</label>
+                    <div class="col-sm-4">
+                        <input id="postal" class="form-control" type="text" name="postal" value="${param.postal}"
+                               placeholder="Enter a valid postal">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label" for="city">By</label>
+                    <div class="col-sm-4">
+                        <input id="city" class="form-control" type="text" name="city" value="${param.city}"
+                               placeholder="Enter a valid city">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label" for="phone">tlf. nummer</label>
+                    <div class="col-sm-4">
+                        <input id="phone" class="form-control" type="text" name="phone" value="${param.phone}"
+                               placeholder="Enter a valid phone number">
                     </div>
                 </div>
 
