@@ -29,8 +29,6 @@
     example: https://getbootstrap.com/docs/5.0/examples/pricing/
 -->
 <div class="container">
-    <img src="${pageContext.request.contextPath}/images/header.png" class="img-fluid mb-0"/>
-
     <header class="" style="align: center;">
         <div class="h5 my-0 me-md-auto fw-normal">
             <p style="font-size: larger">
@@ -38,10 +36,13 @@
             </p>
         </div>
 
+        <div class="image">
+            <img src="${pageContext.request.contextPath}/images/header.png" class="img-fluid mb-0"/>
+        </div>
 
         <!-- Dette kan nok sagtens gøres smartere, men der var ikke nogen navigations bar når man
         loggede ind som enten admin eller customer. -->
-        <nav class="my-2 my-md-0 me-md-0" align="Right">
+        <nav class="buttonImage" class="my-2 my-md-0 me-md-0" align="Right">
             <c:if test="${sessionScope.user != null }">
                 <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
                    href="${pageContext.request.contextPath}/fc/index">Home</a>
@@ -54,7 +55,7 @@
         </nav>
 
         <!-- Dette er den originale navigations bar du arbejdede på Maja -->
-        <nav class="my-2 my-md-0 me-md-0" align="Right">
+        <nav class="buttonImage" class="my-2 my-md-0 me-md-0" align="Right">
             <c:if test="${sessionScope.user == null }">
                 <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
                    href="${pageContext.request.contextPath}/fc/index">Home</a>
@@ -70,19 +71,19 @@
 
         <br>
 
-        <div align="Right">
-            <c:if test="${sessionScope.user != null }">
-                ${sessionScope.user.email}
-            </c:if>
-
+        <div align="Left">
             <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
             <c:set var="isNotLoginPage" value="${!fn:endsWith(thisPage,'loginpage.jsp')}"/>
             <c:set var="isNotRegisterPage" value="${!fn:endsWith(thisPage,'registerpage.jsp')}"/>
 
             <c:if test="${isNotLoginPage && isNotRegisterPage}">
             <c:if test="${sessionScope.user != null }">
-                <a type="button" class="btn btn-sm btn-outline"
+                <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
                    href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
+            </c:if>
+
+            <c:if test="${sessionScope.user != null}">
+                ${sessionScope.user.email}
             </c:if>
         </div>
         </c:if>

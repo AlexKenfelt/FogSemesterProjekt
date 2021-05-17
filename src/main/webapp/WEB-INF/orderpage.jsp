@@ -20,7 +20,8 @@
     </jsp:attribute>
 
     <jsp:body>
-
+        <h2 style="color:#0C2069">Byg din carport</h2>
+        <br>
         <form name="orderconfirmation" action="${pageContext.request.contextPath}/fc/orderconfirmation" method="POST">
             <div class="row mb-3">
                 <label class="col-sm-1 col-form-label" for="length">Længde</label>
@@ -60,7 +61,7 @@
             <c:if test="${not empty param.msg}">
                 <p style="font-size: large">${param.msg}</p>
             </c:if>
-            <button name="buy" class="btn btn-primary" type="submit" value="order">Bestil</button>
+            <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069">Bestil</button>
         </form>
 
         <!-- Dette her er umiddelbart ikke nødvendigt, der skal vel ikke være link tilbage til deres page.
