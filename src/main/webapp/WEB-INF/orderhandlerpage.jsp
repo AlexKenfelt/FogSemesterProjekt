@@ -15,7 +15,7 @@
         <h1>Hello ${sessionScope.email} </h1>
         Admin siden
 
-            table class="table">
+            <table class="table">
             <thead>
             <tr>
                 <th scope="col">Bruger ID</th>
@@ -35,7 +35,7 @@
                     <td>${order.timestamp}</td>
                     <td>
                         <a href="${pageContext.request.contextPath}/fc/orderhandlerpage">
-                            <button class="btn btn-primary btn-sm" type="submit" name="content"
+                            <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
                                     value="${order.id}">
                                 Se indhold
                             </button>

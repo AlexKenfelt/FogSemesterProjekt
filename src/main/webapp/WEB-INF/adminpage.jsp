@@ -4,7 +4,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         This is the homepage for this sites admins
+         Det er siden for visningen af igangværende ordre.
     </jsp:attribute>
     <jsp:attribute name="footer">
         <c:set var="addHomeLink" value="${false}" scope="request"/>
@@ -22,14 +22,16 @@
             </script> -->
             <a href="orderhandlerpage">Rediger ordre</a>
             <table class="table">
+
+
                 <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Bredde</th>
-                    <th>Længde</th>
-                    <th>Status</th>
-                    <th>Bruger</th>
-                    <th>Tidspunkt</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Bredde</th>
+                    <th scope="col">Længde</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Bruger</th>
+                    <th scope="col">Tidspunkt</th>
                 </thead>
                 </tr>
                 <tbody>

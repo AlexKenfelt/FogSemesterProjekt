@@ -108,6 +108,20 @@ public class OrderMapper {
             throw new UserException("Connection to database could not be established");
         }
     }
+    public void updateOrderStatus(int id) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "UPDATE orders SET status = \"confirmed\" WHERE id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, id);
+                ps.executeUpdate();
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+    }
 
     public void insertIntoBomItems (int orderId, CarportItems carportItems) throws UserException {
         try (Connection connection = database.connect()){
@@ -126,22 +140,6 @@ public class OrderMapper {
         }
         } catch (SQLException ex) {
             throw new UserException(ex.getMessage());
-        }
-    }
-
-
-    public void updateOrderStatus(int id) throws UserException {
-        try (Connection connection = database.connect()) {
-            String sql = "UPDATE orders SET status = \"confirmed\" WHERE id = ?";
-
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, id);
-                ps.executeUpdate();
-            } catch (SQLException ex) {
-                throw new UserException(ex.getMessage());
-            }
-        } catch (SQLException ex) {
-            throw new UserException("Connection to database could not be established");
         }
     }
 
