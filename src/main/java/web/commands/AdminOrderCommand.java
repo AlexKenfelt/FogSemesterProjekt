@@ -25,7 +25,7 @@ public class AdminOrderCommand extends CommandProtectedPage {
 
         session.setAttribute("orderList", orderList);
 
-        int orderId = 5; //orderFacade.getOrderIdByTimestamp();
+        int orderId = 1; //orderFacade.getOrderIdByTimestamp();
 
         if (request.getParameter("confirm") != null) {
             orderFacade.updateOrderStatus(orderId);
