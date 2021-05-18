@@ -22,12 +22,14 @@ public class Order {
     public Order(double width, double length) {
         this.width = width;
         this.length = length;
+        this.status = "pending";
     }
 
     public Order(double width, double length, String status, Timestamp timestamp) {
         this.width = width;
         this.length = length;
         this.status = status;
+        this.status = "pending";
         this.timestamp = timestamp;
     }
 

@@ -2,6 +2,7 @@ package web.commands;
 
 import business.entities.Bom;
 import business.entities.Order;
+import business.entities.User;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import business.services.BomService;
@@ -23,52 +24,41 @@ public class BuildCarportCommand extends CommandProtectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
 
-        double length = Double.parseDouble(request.getParameter("length"));
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        Order order;
+
+        double length;
+        double width;
+
+        try
+        {
+            length = Double.parseDouble(request.getParameter("length"));
+            width = Double.parseDouble(request.getParameter("width"));
+        } catch (NumberFormatException ex)
+        {
+            throw new UserException("Lengh or Width is missing");
+        }
+
         request.setAttribute("length", length);
-        double width = Double.parseDouble(request.getParameter("width"));
         request.setAttribute("width", width);
 
-        HttpSession session = request.getSession();
-        Order order = (Order) session.getAttribute("order");
+        // Beregn styklisten
+        Bom bom = new Bom();
+        BomService bomService = new BomService(database);
+        bom.addToBill(bomService.calculatePosts(length));
+        bom.addToBill(bomService.calculateRafters(width,length));
+        bom.addToBill(bomService.calculateBeams(length));
 
-        if (order == null) {
-            order = new Order(length, width);
+        order = new Order(length, width);
+        try {
+            orderFacade.createOrder(order, user.getId(), bom);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        // Her indsætter vi BillOfMaterials
-        Bom bom = (Bom) session.getAttribute("bom");
-        if(bom == null){
-            bom = new Bom();
-            session.setAttribute("bom",bom);
-        }
+        request.setAttribute("order", order);
 
-        if(request.getParameter("submit") != null){
-
-            //Stoplerne tilføjes
-            bom.addToBill(bomService.calculatePosts(length));
-
-            // Spær tilføjelse
-            bom.addToBill(bomService.calculateBeams(length));
-
-            // remme tilføjes
-            bom.addToBill(bomService.calculateRafters(width, length));
-
-            // ordren gemmes
-            //orderFacade.createOrder();
-        }
-
-        //Her requester vi den data der bliver indtastet i vores orderpage af kunden.
-        //Og sætter den som attribute til den oprettede String,
-        // så den kan kaldes på vores orderconfirmation page.
-
-        // if statment der tjekker købknap
-        /*if (request.getParameter("buy") != null) {
-            try {
-                orderFacade.createOrder(order, bomlines);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }*/
         return pageToShow;
     }
 }

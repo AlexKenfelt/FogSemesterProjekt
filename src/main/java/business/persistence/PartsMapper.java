@@ -52,13 +52,13 @@ public class PartsMapper {
                 ps.setInt(1, materialId);
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
-                    int id = rs.getInt(1);
-                    String name = rs.getString(2);
-                    int parts_per_unit = rs.getInt(3);
-                    String unit = rs.getString(4);
+                    int id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    int price_per_unit = rs.getInt("price_per_unit");
+                    String unit = rs.getString("unit");
 
 
-                    tmpParts = new Parts(id, name, parts_per_unit, unit);
+                    tmpParts = new Parts(id, name, price_per_unit, unit);
                 }
                 return tmpParts;
             } catch (SQLException ex) {

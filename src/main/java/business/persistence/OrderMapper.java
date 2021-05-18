@@ -1,5 +1,6 @@
 package business.persistence;
 
+import business.entities.Bom;
 import business.entities.CarportItems;
 import business.entities.Order;
 
@@ -18,31 +19,52 @@ public class OrderMapper {
         this.database = database;
     }
 
-    public void createOrder(Order order, List <CarportItems> bomlines) throws Exception {
+    public void createOrder(Order order, int userId, Bom bom) throws Exception {
         int orderId = 0;
         try (Connection connection = database.connect()) {
-            String sql = "INSERT INTO orders (width, length, status, id, timestamp) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO orders (width, length, status, user_id, timestamp) VALUES (?,?,?,?,?)";
             User user = null;
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setDouble(1, order.getWidth());
                 ps.setDouble(2, order.getLength());
                 ps.setString(3, order.getStatus());
-                ps.setInt(4,order.getId());
-                ps.setTimestamp(5,order.getTimestamp());
+                ps.setInt(4, userId);
+                ps.setTimestamp(5, order.getTimestamp());
 
                 ps.executeUpdate();
-               ResultSet ids = ps.getGeneratedKeys();
+                ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
                 orderId = ids.getInt(1);
+                order.setId(orderId);
+                for (CarportItems carportItems : bom.getCarportItems() ) {
+                    insertIntoBomItems(orderId, carportItems);
+                }
 
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
-            for (CarportItems carportItems : bomlines ) {
-                insertIntoBomItems(orderId, carportItems);
-            }
+
         } catch (SQLException | UserException ex) {
             throw new Exception(ex.getMessage());
+        }
+    }
+
+    public void insertIntoBomItems (int orderId, CarportItems carportItems) throws UserException {
+        try (Connection connection = database.connect()){
+            String sql = "INSERT INTO partlistitem (order_id, description, price, length, parts_id) VALUES (?,?,?,?,?)";
+            try(PreparedStatement ps = connection.prepareStatement(sql)){
+                ps.setInt(1, orderId);
+                ps.setString(2, carportItems.getDescription());
+                ps.setBigDecimal(3, carportItems.getPrice() );
+                ps.setDouble(4,carportItems.getLength());
+                ps.setInt(5,carportItems.getParts_id());
+                ps.executeUpdate();
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
         }
     }
 
@@ -107,6 +129,7 @@ public class OrderMapper {
             throw new UserException("Connection to database could not be established");
         }
     }
+
     public void updateOrderStatus(int id) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "UPDATE orders SET status = \"confirmed\" WHERE id = ?";
@@ -122,25 +145,7 @@ public class OrderMapper {
         }
     }
 
-    public void insertIntoBomItems (int orderId, CarportItems carportItems) throws UserException {
-        try (Connection connection = database.connect()){
-            String sql = "INSERT INTO partlistitem (id, description, price, length, parts_id, order_id) VALUES (?,?,?,?,?,?)";
-        try(PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
-                ps.setInt(1,carportItems.getId());
-                ps.setString(2, carportItems.getDescription());
-                ps.setBigDecimal(3, carportItems.getPrice() );
-                ps.setDouble(4,carportItems.getLength());
-                ps.setInt(5,carportItems.getParts_id());
-                ps.setInt(6,carportItems.getOrder_id());
-                ps.executeUpdate();
 
-        } catch (SQLException ex) {
-            throw new UserException(ex.getMessage());
-        }
-        } catch (SQLException ex) {
-            throw new UserException(ex.getMessage());
-        }
-    }
 
     public int getOrderId() throws UserException {
         int id = 0;

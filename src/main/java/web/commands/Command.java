@@ -36,10 +36,11 @@ public abstract class Command {
 
         //Her er vores orderpage blevet sat til en "CommandProtectedPage" så man skal være logget ind for at kunne få
         //lov til at bestille en carport.
-        commands.put("orderpage", new CommandProtectedPage("orderpage", "customer"));
+        commands.put("orderpage", new CreateOrderCommand("orderpage", "customer"));
         //Det er her vores input data fra "orderpage" bliver sendt til.
         //Ligenu er det så selvfølgelig kun folk med customer rolen der har adgang til carports bestilling.
         commands.put("orderconfirmation", new BuildCarportCommand("orderconfirmation", "customer"));
+
 
     }
 

@@ -90,7 +90,7 @@ public class BomService {
         //Dette er det endelige resultat.
         int numberOfRafters;
         //Vi tager bare og dividerer længden med, den bestemte afstand der skal være, for at få antal spær.
-        numberOfRafters = ((int)length / (int)rafterSpacing );
+        numberOfRafters = (int) (length / rafterSpacing );
 
         CarportItems tmpCarportItems = new CarportItems(quantity, length, parts_id);
 
