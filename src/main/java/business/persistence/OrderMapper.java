@@ -46,25 +46,20 @@ public class OrderMapper {
         }
     }
 
-    public List<Order> getOrderByCustomerId(Integer user_id) throws UserException {
+    public List<Order> getOrderByCustomerId(int user_id) throws UserException {
         List<Order> orderList = new ArrayList<>();
 
         try (Connection connection = database.connect()) {
 
-            String sql = "SELECT * FROM orders WHERE user_id = 1=1";
-
-            if(user_id != null){
-                sql += "AND user_id = ?";
-            }
+            String sql = "SELECT * FROM orders WHERE user_id = ?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ps.setInt(1, user_id);
                 ResultSet rs = ps.executeQuery();
 
                 while (rs.next()) {
 
-                    if(user_id != null){
-                        user_id = rs.getInt("user_id");
-                    }
 
                     //int id = rs.getInt("id");
                     double width = rs.getDouble("width");

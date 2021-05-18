@@ -7,22 +7,29 @@ public class CarportItems {
     private int id;
     private String description;
     private BigDecimal price;
+    private int quantity;
     private double length;
     private int parts_id;
     private int order_id;
 
-    public CarportItems(int id, String description, BigDecimal price, double length, int parts_id, int order_id) {
+    public CarportItems(int id, String description, BigDecimal price, int quantity, double length, int parts_id, int order_id) {
         this.id = id;
         this.description = description;
         this.price = price;
         this.length = length;
         this.parts_id = parts_id;
         this.order_id = order_id;
+        this.quantity = quantity;
     }
 
-    public CarportItems(double length, int parts_id) {
+    public CarportItems(int quantity, double length, int parts_id) {
+        this.quantity = quantity;
         this.length = length;
         this.parts_id = parts_id;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 
     public int getId() {

@@ -23,6 +23,7 @@ public class BomService {
         int quantity = 4;
 
 
+
         //Den foreste stolpe skal sidde en meter inde.
         int frontPost = 100;
         //Den bagerste stolpe skal sidde 20 cm meter inde.
@@ -34,20 +35,20 @@ public class BomService {
         //Dette er bare en konstant.
         int multiplier = 2;
         //dette er vores float som kun bliver brugt i mellem regningerne, denne bliver typecasted til int result længere nede.
-        float result = 0;
+        double result = 0;
         //Her vælger vi og tage carportens indtastede længde og minuser det med, det stykke som den foreste og bagerste stolpe skal sidde inde.
         actualLength = ((int)length - frontPost - backPost);
         //Her tager vi minimums kravet til spacing mellem hver stolpe og dividerer det med den faktiske længde på vore carport
-        result = (minimumPostSpacing / actualLength);
+        result = ( actualLength / minimumPostSpacing);
         //her tager vi og runder result op til det tætteste hel tal.
-        Math.round(result);
+        result = Math.round(result);
         //Her ganger vi med 2 så vi får begge sider med af carporten.
-        result = (result * multiplier);
+        quantity = quantity + ((int) result * multiplier);
         //Nu typecaster vi vores result som er en float om til en int.
         int numberOfPosts = (int)result ;
         //Dett her er det endelige resultat.
 
-        CarportItems tmpCarportItems = new CarportItems(length, parts_id);
+        CarportItems tmpCarportItems = new CarportItems(quantity, 300, parts_id);
 
         return tmpCarportItems;
     }
@@ -69,7 +70,7 @@ public class BomService {
         //Vi går ud fra at lageret altid har den længde bjælke på lager der skal bruges.
         numberOfBeams = ((int)length * multiplier);
 
-        CarportItems tmpCarportItems = new CarportItems(length, parts_id);
+        CarportItems tmpCarportItems = new CarportItems(quantity, length, parts_id);
 
         return tmpCarportItems;
     }
@@ -91,7 +92,7 @@ public class BomService {
         //Vi tager bare og dividerer længden med, den bestemte afstand der skal være, for at få antal spær.
         numberOfRafters = ((int)length / (int)rafterSpacing );
 
-        CarportItems tmpCarportItems = new CarportItems(length, parts_id);
+        CarportItems tmpCarportItems = new CarportItems(quantity, length, parts_id);
 
         return tmpCarportItems;
     }

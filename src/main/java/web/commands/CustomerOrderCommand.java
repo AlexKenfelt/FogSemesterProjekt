@@ -1,6 +1,7 @@
 package web.commands;
 
 import business.entities.Order;
+import business.entities.User;
 import business.exceptions.UserException;
 import business.services.OrderFacade;
 
@@ -29,7 +30,11 @@ public class CustomerOrderCommand extends CommandProtectedPage {
         //request.setAttribute("user_id", user_id);
         //List<Order> orderList = orderFacade.getOrderByCustomerId(user_id);
 
-        //HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
+
+        User user = (User) session.getAttribute("user");
+
+        List<Order> orders = orderFacade.getOrderByCustomerId(user.getId());
         //session.setAttribute("orderList", orderList);
 
         return pageToShow;
