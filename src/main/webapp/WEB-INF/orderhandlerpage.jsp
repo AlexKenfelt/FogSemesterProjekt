@@ -11,7 +11,7 @@
     </jsp:attribute>
 
     <jsp:body>
-        <form method="post" action="${pageContext.request.contextPath}/fc/orderhandlerpage">
+        <form method="POST" action="${pageContext.request.contextPath}/fc/orderhandlerpage">
         <h1>Hello ${sessionScope.email} </h1>
         Admin siden
 

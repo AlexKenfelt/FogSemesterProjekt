@@ -38,14 +38,13 @@
             since your are logged in as an Admin</p>
             <p><a href="fc/adminpage">Admin page</a>
         </c:if>
-
+        -->
         <c:if test="${sessionScope.role == 'customer' }">
-            <p style="font-size: larger">This is what you can do, since your
-            are logged in as a customer</p>
+            <p style="font-size: larger">Tryk her for at komme hen på din side, hvor du kan holde dig opdateret på din ordres status.</p>
             <p><a href="fc/customerpage">Customer Page</a>
         </c:if>
         </div>
-        -->
+
 
     </jsp:body>
 </t:genericpage>

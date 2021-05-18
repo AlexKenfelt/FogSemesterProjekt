@@ -12,35 +12,25 @@
 
     <jsp:body>
         <form method="post" action="${pageContext.request.contextPath}/fc/customerpage">
-            <h1>Hello ${sessionScope.user} </h1>
 
-            <p> Velkommen til din kunde side, her vil du kunne se din ordre status når du har bestilt din carport. </p>
-
-
-
-            <!-- Her skal vi altså have en funktion/metode der går ind og henter kunde ID ud fra sessionScope email. -->
-            <!-- Og på den måde kan vi sikre os at kun den ordre der tilhører den tilsvarende kunde der er logget ind bliver vist. -->
+            <p> Velkommen ${sessionScope.user.name.toString()}, her vil du kunne se din ordre status når du har bestilt din carport. </p>
 
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Bredde</th>
                     <th>Længde</th>
                     <th>Status</th>
-                    <th>Bruger</th>
                     <th>Tidspunkt</th>
                 </thead>
                 </tr>
                 <tbody>
-                <c:forEach var="order" items="${sessionScope.orderList}">
+                <c:forEach var="order" items="${sessionScope.orders}">
 
                     <tr>
-                        <td>${order.id}</td>
                         <td>${order.width}</td>
                         <td>${order.length}</td>
                         <td>${order.status}</td>
-                        <td>${order.user}</td>
                         <td>${order.timestamp}</td>
                     </tr>
                 </c:forEach>

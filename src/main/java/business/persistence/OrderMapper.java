@@ -47,7 +47,7 @@ public class OrderMapper {
     }
 
     public List<Order> getOrderByCustomerId(int user_id) throws UserException {
-        List<Order> orderList = new ArrayList<>();
+        List<Order> orders = new ArrayList<>();
 
         try (Connection connection = database.connect()) {
 
@@ -60,16 +60,15 @@ public class OrderMapper {
 
                 while (rs.next()) {
 
-
                     //int id = rs.getInt("id");
                     double width = rs.getDouble("width");
                     double length = rs.getDouble("length");
                     String status = rs.getString("status");
                     Timestamp timestamp = rs.getTimestamp("timestamp");
 
-                    orderList.add(new Order(width, length, status, timestamp));
+                    orders.add(new Order(width, length, status, timestamp));
                 }
-                return orderList;
+                return orders;
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
