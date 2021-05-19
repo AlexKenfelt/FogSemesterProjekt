@@ -1,15 +1,16 @@
 package business.entities;
 
 public class Parts {
-   private int id;
-   private String name;
-   private int partsPerUnit;
-   private String Unit;
+    private int id;
+    private String name;
+    private int pricePerUnit;
+    private String Unit;
 
-    public Parts(int id, String name, int partsPerUnit, String unit) {
+
+    public Parts(int id, String name, int pricePerUnit, String unit) {
         this.id = id;
         this.name = name;
-        this.partsPerUnit = partsPerUnit;
+        this.pricePerUnit = pricePerUnit;
         Unit = unit;
     }
 
@@ -29,12 +30,12 @@ public class Parts {
         this.name = name;
     }
 
-    public int getPartsPerUnit() {
-        return partsPerUnit;
+    public int getPricePerUnit() {
+        return pricePerUnit;
     }
 
-    public void setPartsPerUnit(int partsPerUnit) {
-        this.partsPerUnit = partsPerUnit;
+    public void setPricePerUnit(int pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
     }
 
     public String getUnit() {
@@ -50,7 +51,7 @@ public class Parts {
         return "Parts{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", partsPerUnit=" + partsPerUnit +
+                ", pricePerUnit=" + pricePerUnit +
                 ", Unit='" + Unit + '\'' +
                 '}';
     }

@@ -60,7 +60,7 @@ public class OrderMapper {
                 ps.setDouble(6,carportItems.getLength());
                 ps.setString(7, carportItems.getUnit());
                 ps.setString(8, carportItems.getDescription());
-                ps.setBigDecimal(9, carportItems.getPrice() );
+                ps.setInt(9, carportItems.getPrice());
 
                 ps.executeUpdate();
 

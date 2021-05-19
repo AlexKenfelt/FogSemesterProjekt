@@ -54,9 +54,8 @@ public class PartsMapper {
                 if (rs.next()) {
                     int id = rs.getInt("id");
                     String name = rs.getString("name");
-                    int price_per_unit = rs.getInt("price_per_unit");
                     String unit = rs.getString("unit");
-
+                    int price_per_unit = rs.getInt("price_per_unit");
 
                     tmpParts = new Parts(id, name, price_per_unit, unit);
                 }

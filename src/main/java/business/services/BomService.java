@@ -12,13 +12,12 @@ public class BomService {
     public BomService(Database database) {
         this.partsFacade = new PartsFacade(database);
     }
-    //TODO: Vi skal have 2 resultater med ... måske?
-    //TODO: Noget ifht. hvor høje vores stolper er, vi har udregnet hvor mange der skal bruges men intet med højden?
-    //TODO: Går vi udfra at vi kun har X antal stolper af 300 cm?
+
     public CarportItems calculatePosts ( double length) throws UserException {
 
         Parts parts = partsFacade.getPartsById(1);
         int parts_id = parts.getId();
+
         String name = "25x200mm. trykimp. Brædt";
         String unit = "stk.";
         String desc = "This is a description of how to use this item.";
@@ -57,12 +56,11 @@ public class BomService {
         return tmpCarportItems;
     }
 
-    //TODO: Evt. sætte en maks længde på de bjælker der er på lageret.
-    //TODO: fks. hvis længden på carporten er 800cm men vi kun tilbyder 600cm bjælker skal der være 2x af 600cm og 2x af 200cm.
     public CarportItems calculateBeams (double length) throws UserException {
 
         Parts parts = partsFacade.getPartsById(2);
         int parts_id = parts.getId();
+
         String name = "25x200mm. trykimp. Brædt";
         String unit = "stk.";
         String desc = "This is a description of how to use this item.";
@@ -78,7 +76,6 @@ public class BomService {
         return tmpCarportItems;
     }
 
-    //TODO: Kundens indtastede width til sin carport skal matche med den witdh vores spær har.
     public CarportItems calculateRafters (double width, double length) throws UserException {
 
         Parts parts = partsFacade.getPartsById(3);
@@ -102,6 +99,4 @@ public class BomService {
 
         return tmpCarportItems;
     }
-
 }
-

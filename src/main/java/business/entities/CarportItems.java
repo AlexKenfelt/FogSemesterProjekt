@@ -4,75 +4,26 @@ import java.math.BigDecimal;
 
 public class CarportItems {
 
-    private int id;
-    private String description;
-    private BigDecimal price;
+    //private int id;
+    private int order_id;
+    private int parts_id;
+    private String name;
     private int quantity;
     private double length;
-    private int parts_id;
-    private int order_id;
+    private String unit;
+    private String description;
+    private int price;
 
-    public CarportItems(int id, int order_id, int parts_id, String name, int quantity, double length, String unit, String description, BigDecimal price) {
-        this.id = id;
-        this.description = description;
-        this.price = price;
-        this.length = length;
-        this.parts_id = parts_id;
+    public CarportItems(int parts_id, String name, int quantity, double length, String unit, String description, int price) {
+        //this.id = id;
         this.order_id = order_id;
-        this.quantity = quantity;
-    }
-
-    public CarportItems(int quantity, double length, int parts_id) {
+        this.parts_id = parts_id;
+        this.name = name;
         this.quantity = quantity;
         this.length = length;
-        this.parts_id = parts_id;
-    }
-
-    public CarportItems(int parts_id, String name, int quantity, double length, String unit, String desc, int price) {
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
+        this.unit = unit;
         this.description = description;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public double getLength() {
-        return length;
-    }
-
-    public void setLength(double length) {
-        this.length = length;
-    }
-
-    public int getParts_id() {
-        return parts_id;
-    }
-
-    public void setParts_id(int parts_id) {
-        this.parts_id = parts_id;
     }
 
     public int getOrder_id() {
@@ -83,14 +34,73 @@ public class CarportItems {
         this.order_id = order_id;
     }
 
-    @Override
-    public String toString() {
-        return  "id = " + id +
-                " description = " + description +
-                " price = " + price +
-                " length = " + length +
-                " partsId = " + parts_id +
-                " orderId = " + order_id;
+    public int getParts_id() {
+        return parts_id;
     }
 
+    public void setParts_id(int parts_id) {
+        this.parts_id = parts_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "CarportItems{" +
+                "order_id=" + order_id +
+                ", parts_id=" + parts_id +
+                ", name='" + name + '\'' +
+                ", quantity=" + quantity +
+                ", length=" + length +
+                ", unit='" + unit + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
