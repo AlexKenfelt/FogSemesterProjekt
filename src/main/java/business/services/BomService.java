@@ -59,18 +59,13 @@ public class BomService {
 
         Parts parts = partsFacade.getPartsById(2);
         int parts_id = parts.getId();
-        String name = parts.getName();
-        int quantity = 4;
+        //String name = parts.getName();
+        int quantity = 2;
 
-        //Dette er bare en konstant.
-        int multiplier = 2;
-        //Dette er vores endelige resultat.
-        int numberOfBeams;
-        //Vi tager bare ganger længden med 2, så vi har begge sider af vores carport.
-        //Vi går ud fra at lageret altid har den længde bjælke på lager der skal bruges.
-        numberOfBeams = ((int)length * multiplier);
+        int lengthOfBeams = (int) length;
 
-        CarportItems tmpCarportItems = new CarportItems(quantity, length, parts_id);
+        CarportItems tmpCarportItems = new CarportItems(quantity, lengthOfBeams, parts_id);
+
 
         return tmpCarportItems;
     }
