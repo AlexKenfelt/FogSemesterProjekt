@@ -1,12 +1,10 @@
 package business.persistence;
 
 import business.entities.CarportItems;
+import business.entities.Order;
 import business.exceptions.UserException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,24 +16,31 @@ public class BomMapper {
         this.database = database;
     }
 
-    public List<CarportItems> getBillOfMaterials(int id) throws UserException {
-        List<CarportItems> carportItems = new ArrayList<>();
-        try (Connection connection = database.connect()) {
-            String sql = "SELECT * FROM bom_items WHERE order_id = ?";
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, id);
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    //TODO: skal have indskrevet parameter her
-                }
+    public double summedPrice(int order_id) throws UserException {
+        double value = 0.0;
 
+        try (Connection connection = database.connect()) {
+
+            String sql = "SELECT SUM(price) FROM partlistitem WHERE order_id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ps.setInt(1, order_id);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    String sum = rs.getString(1);
+                    System.out.println(sum);
+                    value = Double.parseDouble(sum);
+                }
+                return value;
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
-        } catch (SQLException | UserException ex) {
+
+        } catch (SQLException ex) {
             throw new UserException("Connection to database could not be established");
         }
-        return carportItems;
     }
 }
 
