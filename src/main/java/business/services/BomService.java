@@ -80,19 +80,17 @@ public class BomService {
 
         Parts parts = partsFacade.getPartsById(3);
         int parts_id = parts.getId();
-        String name = parts.getName();
-        int quantity = 4;
+        //String name = parts.getName();
+        int quantity;
 
         //Dette er afstanden der skal være imellem hver spær.
         double rafterSpacing = 0.55;
         //Dette er længden af vores spær. Dette skal helst være lig med den længde der bliver givet til carporten.
-        int lengthOfRafters;
-        //Dette er det endelige resultat.
-        int numberOfRafters;
+        int lengthOfRafters = (int) width; 
         //Vi tager bare og dividerer længden med, den bestemte afstand der skal være, for at få antal spær.
-        numberOfRafters = (int) (length / rafterSpacing );
+        quantity = (int) (length / rafterSpacing );
 
-        CarportItems tmpCarportItems = new CarportItems(quantity, length, parts_id);
+        CarportItems tmpCarportItems = new CarportItems(quantity, lengthOfRafters, parts_id);
 
         return tmpCarportItems;
     }
