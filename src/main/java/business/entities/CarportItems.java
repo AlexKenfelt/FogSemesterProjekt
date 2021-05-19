@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class CarportItems {
 
     private int id;
+    private String name;
     private String description;
     private BigDecimal price;
     private int quantity;
@@ -12,8 +13,9 @@ public class CarportItems {
     private int parts_id;
     private int order_id;
 
-    public CarportItems(int id, String description, BigDecimal price, int quantity, double length, int parts_id, int order_id) {
+    public CarportItems(int id, int order_id, int parts_id, String name, int quantity, double length, String unit, String description, BigDecimal price) {
         this.id = id;
+        this.name = name;
         this.description = description;
         this.price = price;
         this.length = length;
@@ -28,16 +30,20 @@ public class CarportItems {
         this.parts_id = parts_id;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -54,6 +60,14 @@ public class CarportItems {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public double getLength() {
@@ -82,12 +96,15 @@ public class CarportItems {
 
     @Override
     public String toString() {
-        return  "id = " + id +
-                " description = " + description +
-                " price = " + price +
-                " length = " + length +
-                " partsId = " + parts_id +
-                " orderId = " + order_id;
+        return "CarportItems{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", length=" + length +
+                ", parts_id=" + parts_id +
+                ", order_id=" + order_id +
+                '}';
     }
-
 }

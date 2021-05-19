@@ -20,7 +20,9 @@ public class BomService {
         Parts parts = partsFacade.getPartsById(1);
         int parts_id = parts.getId();
         String name = parts.getName();
+        // description sættes ind
         int quantity = 4;
+
 
 
 
@@ -48,6 +50,9 @@ public class BomService {
         int numberOfPosts = (int)result ;
         //Dett her er det endelige resultat.
 
+        //udregn pris og des
+        int price = parts.getPartsPerUnit() * quantity;
+        String partsName = parts.getName();
         CarportItems tmpCarportItems = new CarportItems(quantity, 300, parts_id);
 
         return tmpCarportItems;
