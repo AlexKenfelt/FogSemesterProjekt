@@ -12,7 +12,7 @@ public class CarportItems {
     private int parts_id;
     private int order_id;
 
-    public CarportItems(int id, String description, BigDecimal price, int quantity, double length, int parts_id, int order_id) {
+    public CarportItems(int id, int order_id, int parts_id, String name, int quantity, double length, String unit, String description, BigDecimal price) {
         this.id = id;
         this.description = description;
         this.price = price;
@@ -26,6 +26,9 @@ public class CarportItems {
         this.quantity = quantity;
         this.length = length;
         this.parts_id = parts_id;
+    }
+
+    public CarportItems(int parts_id, String name, int quantity, double length, String unit, String desc, int price) {
     }
 
     public int getQuantity() {

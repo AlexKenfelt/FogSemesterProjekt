@@ -6,8 +6,8 @@ import business.exceptions.UserException;
 import business.persistence.Database;
 
 public class BomService {
-    PartsFacade partsFacade;
 
+    PartsFacade partsFacade;
 
     public BomService(Database database) {
         this.partsFacade = new PartsFacade(database);
@@ -19,10 +19,11 @@ public class BomService {
 
         Parts parts = partsFacade.getPartsById(1);
         int parts_id = parts.getId();
-        String name = parts.getName();
+        String name = "25x200mm. trykimp. Brædt";
+        String unit = "stk.";
+        String desc = "This is a description of how to use this item.";
+        int price;
         int quantity = 4;
-
-
 
         //Den foreste stolpe skal sidde en meter inde.
         int frontPost = 100;
@@ -48,7 +49,10 @@ public class BomService {
         int numberOfPosts = (int)result ;
         //Dett her er det endelige resultat.
 
-        CarportItems tmpCarportItems = new CarportItems(quantity, 300, parts_id);
+        //Prisen er ligenu bare hardcodet. kunne være sjovt og lave en metode der henter prisen ud fra parts id.
+        price = (quantity * 100);
+
+        CarportItems tmpCarportItems = new CarportItems(parts_id, name, quantity, length, unit, desc, price);
 
         return tmpCarportItems;
     }
@@ -59,18 +63,17 @@ public class BomService {
 
         Parts parts = partsFacade.getPartsById(2);
         int parts_id = parts.getId();
-        String name = parts.getName();
-        int quantity = 4;
+        String name = "25x200mm. trykimp. Brædt";
+        String unit = "stk.";
+        String desc = "This is a description of how to use this item.";
+        int price;
+        int quantity = 2;
 
-        //Dette er bare en konstant.
-        int multiplier = 2;
-        //Dette er vores endelige resultat.
-        int numberOfBeams;
-        //Vi tager bare ganger længden med 2, så vi har begge sider af vores carport.
-        //Vi går ud fra at lageret altid har den længde bjælke på lager der skal bruges.
-        numberOfBeams = ((int)length * multiplier);
+        int lengthOfBeams = (int) length;
 
-        CarportItems tmpCarportItems = new CarportItems(quantity, length, parts_id);
+        price = (quantity * 75);
+
+        CarportItems tmpCarportItems = new CarportItems(parts_id, name, quantity, lengthOfBeams, unit, desc, price);
 
         return tmpCarportItems;
     }
@@ -80,17 +83,22 @@ public class BomService {
 
         Parts parts = partsFacade.getPartsById(3);
         int parts_id = parts.getId();
-        //String name = parts.getName();
+        String name = "25x200mm. trykimp. Brædt";
+        String unit = "stk.";
+        String desc = "This is a description of how to use this item.";
+        int price;
         int quantity;
 
         //Dette er afstanden der skal være imellem hver spær.
         double rafterSpacing = 0.55;
         //Dette er længden af vores spær. Dette skal helst være lig med den længde der bliver givet til carporten.
-        int lengthOfRafters = (int) width; 
+        int lengthOfRafters = (int) width;
         //Vi tager bare og dividerer længden med, den bestemte afstand der skal være, for at få antal spær.
         quantity = (int) (length / rafterSpacing );
 
-        CarportItems tmpCarportItems = new CarportItems(quantity, lengthOfRafters, parts_id);
+        price = (quantity * 115);
+
+        CarportItems tmpCarportItems = new CarportItems(parts_id, name, quantity, lengthOfRafters, unit, desc, price);
 
         return tmpCarportItems;
     }
