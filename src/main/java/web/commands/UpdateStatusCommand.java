@@ -1,6 +1,7 @@
 package web.commands;
 
 import business.entities.Order;
+import business.entities.User;
 import business.exceptions.UserException;
 import business.services.OrderFacade;
 
@@ -20,8 +21,23 @@ public class UpdateStatusCommand extends CommandProtectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
+        Order order = (Order) session.getAttribute("order");
 
-        int id = orderFacade.getOrderId();
+       // int id = orderFacade.getOrderId();
+        int id;
+
+        try
+        {
+            id = Integer.parseInt(request.getParameter("id"));
+        } catch (NumberFormatException ex)
+        {
+            throw new UserException("Id is missing");
+        }
+
+        request.setAttribute("id", id);
+
+
+
 
         //This is where we confirm the orders.
         if (request.getParameter("confirm") != null) {

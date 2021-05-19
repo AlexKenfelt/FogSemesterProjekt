@@ -11,15 +11,10 @@
     </jsp:attribute>
 
     <jsp:body>
-        <form name="statusconfirmationpage" action="${pageContext.request.contextPath}/fc/statusconfirmationpage" method="POST">
+        <form method="POST" action="${pageContext.request.contextPath}/fc/statusconfirmationpage">
         <h1>Hello ${sessionScope.email} </h1>
         Admin siden
-            <div class="row mb-3">
-                <label class="col-sm-1 col-form-label" for="id">id</label>
-                <div class="col-sm-4">
-                    <input class="form-control" type="number" step="1" name="id" id="id">
-                </div>
-            </div>
+
             <table class="table">
             <thead>
             <tr>
@@ -52,7 +47,6 @@
                             Fjern
                         </button>
                         <button name="confirm" type="submit" value="${order.id}" class="btn btn-primary checkoutbtn">Confirm order</button>
-
 
                     </td>
                 </tr>

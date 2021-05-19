@@ -28,7 +28,7 @@ public abstract class Command {
         //commands.put("adminpage", new CommandProtectedPage("adminpage", "admin"));
         commands.put("contactpage", new CommandUnprotectedPage("contactpage"));
 
-        commands.put("orderhandlerpage", new UpdateStatusCommand("orderhandlerpage", "admin"));
+        commands.put("orderhandlerpage", new StatusRedirectCommand("orderhandlerpage", "admin"));
 
         commands.put("adminpage", new AdminOrderCommand("adminpage", "admin"));
 
@@ -40,6 +40,7 @@ public abstract class Command {
         //Det er her vores input data fra "orderpage" bliver sendt til.
         //Ligenu er det så selvfølgelig kun folk med customer rolen der har adgang til carports bestilling.
         commands.put("orderconfirmation", new BuildCarportCommand("orderconfirmation", "customer"));
+        commands.put("statusconfirmationpage", new UpdateStatusCommand("statusconfirmationpage", "admin"));
 
 
     }
