@@ -53,14 +53,14 @@ public class OrderMapper {
         try (Connection connection = database.connect()){
             String sql = "INSERT INTO partlistitem (order_id, parts_id, name, quantity, length, unit, description, price) VALUES (?,?,?,?,?,?,?,?)";
             try(PreparedStatement ps = connection.prepareStatement(sql)){
-                ps.setInt(2, orderId);
-                ps.setInt(3, carportItems.getParts_id());
-                ps.setString(4, carportItems.getName());
-                ps.setInt(5, carportItems.getQuantity());
-                ps.setDouble(6,carportItems.getLength());
-                ps.setString(7, carportItems.getUnit());
-                ps.setString(8, carportItems.getDescription());
-                ps.setInt(9, carportItems.getPrice());
+                ps.setInt(1, orderId);
+                ps.setInt(2, carportItems.getParts_id());
+                ps.setString(3, carportItems.getName());
+                ps.setInt(4, carportItems.getQuantity());
+                ps.setDouble(5,carportItems.getLength());
+                ps.setString(6, carportItems.getUnit());
+                ps.setString(7, carportItems.getDescription());
+                ps.setInt(8, carportItems.getPrice());
 
                 ps.executeUpdate();
 

@@ -87,11 +87,11 @@ public class BomService {
         int quantity;
 
         //Dette er afstanden der skal være imellem hver spær.
-        double rafterSpacing = 0.55;
+        double rafterSpacing = 55;
         //Dette er længden af vores spær. Dette skal helst være lig med den længde der bliver givet til carporten.
         int lengthOfRafters = (int) width;
         //Vi tager bare og dividerer længden med, den bestemte afstand der skal være, for at få antal spær.
-        quantity = (int) (length / rafterSpacing );
+        quantity = (int) (length / rafterSpacing);
 
         price = (quantity * 115);
 
