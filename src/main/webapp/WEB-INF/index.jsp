@@ -22,13 +22,12 @@
                     <p><a href="${pageContext.request.contextPath}/fc/orderpage">Her!</a>
                         </c:if>
 
+
                         <c:if test="${sessionScope.user == null}">
                     <p style="font-size: larger">her min ven</p>
                     <p><a href="${pageContext.request.contextPath}/fc/loginpage">Her!</a>
                         </c:if>
-
                 </h2>
-
 
                 <img src="${pageContext.request.contextPath}/images/Carport.png" class="img-fluid mb-4 text-center"
                      style="text-align: center"/>
