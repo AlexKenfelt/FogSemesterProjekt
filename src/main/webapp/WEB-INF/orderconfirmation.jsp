@@ -27,7 +27,7 @@
             behandlet i vores BuildCarportCommand klasse. Og så bliver den displayet her -->
             <p style="font-size: larger"> bredde: ${requestScope.width} </p>
             <p style="font-size: larger"> højde: ${requestScope.length} </p>
-
+            
             <a href="${pageContext.request.contextPath}/fc/offerpage">
                 <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
                         value="${order.id}">
