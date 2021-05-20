@@ -41,7 +41,7 @@
 
                         <c:if test="${sessionScope.role == 'customer' }">
 
-                    <p><a href="/fc/customerpage">Customer Page</a>
+                    <p><a href="${pageContext.request.contextPath}/fc/customerpage">Customer Page</a></p>
                         </c:if>
                 </div>
 

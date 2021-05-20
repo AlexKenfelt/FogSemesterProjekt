@@ -44,6 +44,7 @@ public abstract class Command {
         commands.put("statusconfirmationpage", new UpdateStatusCommand("statusconfirmationpage", "admin"));
 
         commands.put("offerpage", new OfferPageCommand("offerpage", "customer"));
+        commands.put("receiptpage", new OfferPageCommand("receiptpage", "customer"));
 
     }
 
