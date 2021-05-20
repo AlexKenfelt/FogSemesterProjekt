@@ -27,6 +27,8 @@
             behandlet i vores BuildCarportCommand klasse. Og så bliver den displayet her -->
             <p style="font-size: larger"> bredde: ${requestScope.width} </p>
             <p style="font-size: larger"> højde: ${requestScope.length} </p>
+
+                ${requestScope.drawing}
             <!-- Dette her data har ikke noget med databasen at gøre, så ingen data bliver gemt
             udover i vores sessionScope. -->
         </div>

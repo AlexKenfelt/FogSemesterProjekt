@@ -36,7 +36,6 @@ public class BuildCarportCommand extends CommandProtectedPage {
         double length;
         double width;
 
-
         try
         {
             length = Double.parseDouble(request.getParameter("length"));
@@ -64,7 +63,6 @@ public class BuildCarportCommand extends CommandProtectedPage {
         }
 
         request.setAttribute("order", order);
-
 
         //Draw Carport
         SVG svg = new SVG(0, 0, "0 0 855 600", 100, 100);
