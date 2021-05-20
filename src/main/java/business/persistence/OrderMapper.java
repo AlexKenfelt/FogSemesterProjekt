@@ -37,7 +37,7 @@ public class OrderMapper {
                 orderId = ids.getInt(1);
                 order.setId(orderId);
                 for (CarportItems carportItems : bom.getCarportItems() ) {
-                    insertIntoBomItems(orderId, carportItems);
+                    insertIntoPartListItem(orderId, carportItems);
                 }
 
             } catch (SQLException ex) {
@@ -49,7 +49,7 @@ public class OrderMapper {
         }
     }
 
-    public void insertIntoBomItems (int orderId, CarportItems carportItems) throws UserException {
+    public void insertIntoPartListItem (int orderId, CarportItems carportItems) throws UserException {
         try (Connection connection = database.connect()){
             String sql = "INSERT INTO partlistitem (order_id, parts_id, name, quantity, length, unit, description, price) VALUES (?,?,?,?,?,?,?,?)";
             try(PreparedStatement ps = connection.prepareStatement(sql)){

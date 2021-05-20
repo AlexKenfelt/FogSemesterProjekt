@@ -41,6 +41,7 @@ public abstract class Command {
         //Ligenu er det så selvfølgelig kun folk med customer rolen der har adgang til carports bestilling.
         commands.put("orderconfirmation", new BuildCarportCommand("orderconfirmation", "customer"));
         commands.put("statusconfirmationpage", new UpdateStatusCommand("statusconfirmationpage", "admin"));
+        commands.put("offerpage", new CommandUnprotectedPage("offerpage"));
 
 
     }
