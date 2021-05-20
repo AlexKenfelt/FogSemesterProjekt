@@ -14,6 +14,7 @@
         <form method="post" action="${pageContext.request.contextPath}/fc/customerpage">
 
             <p> Velkommen ${sessionScope.user.name.toString()}, her vil du kunne se din ordre status når du har bestilt din carport. </p>
+            <p><a href="index">Til forsiden</a> <br> <a href="orderpage">Bestil din carport</a></p>
 
             <table class="table">
                 <thead>

@@ -39,12 +39,15 @@
             <p><a href="fc/adminpage">Admin page</a>
         </c:if>
         -->
-        <c:if test="${sessionScope.role == 'customer' }">
-            <p style="font-size: larger">Tryk her for at komme hen på din side, hvor du kan holde dig opdateret på din ordres status.</p>
-            <p><a href="fc/customerpage">Customer Page</a>
-        </c:if>
         </div>
-
+        <div>
+        <a href="${pageContext.request.contextPath}/fc/offerpage">
+            <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
+                    value="${order.id}">
+                Gå til tilbuddet!
+            </button>
+        </a>
+        </div>
 
     </jsp:body>
 </t:genericpage>

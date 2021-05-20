@@ -17,7 +17,16 @@
         <div class="row">
             <div class="col-4 mx-auto text-center">
                 <h2 style="color:#0C2069" ;>Bestil din carport
-                    <a style="color: #0C2069" href="${pageContext.request.contextPath}/fc/orderpage"> her</a>
+                    <c:if test="${sessionScope.role == 'customer' }">
+                    <p style="font-size: larger">her min ven</p>
+                    <p><a href="${pageContext.request.contextPath}/fc/orderpage">Her!</a>
+                        </c:if>
+
+                        <c:if test="${sessionScope.user == null}">
+                    <p style="font-size: larger">her min ven</p>
+                    <p><a href="${pageContext.request.contextPath}/fc/loginpage">Her!</a>
+                        </c:if>
+
                 </h2>
 
 
