@@ -10,12 +10,19 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:genericpage>
+
     <jsp:attribute name="header">
     </jsp:attribute>
+
     <jsp:attribute name="footer">
         <c:set var="addHomeLink" value="${false}" scope="request"/>
     </jsp:attribute>
+
     <jsp:body>
-        <p>Det samlet tilbud, plantegning og pris skal vises her</p>
+
+        <div>
+            <p style="font-size: larger"> Vi vil nu behandle din anmodning om en carport med målene: </p>
+        </div>
+
     </jsp:body>
 </t:genericpage>

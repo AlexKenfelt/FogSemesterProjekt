@@ -43,8 +43,7 @@ public abstract class Command {
 
         commands.put("statusconfirmationpage", new UpdateStatusCommand("statusconfirmationpage", "admin"));
 
-        commands.put("offerpage", new offerCommand("offerpage", "customer"));
-
+        commands.put("offerpage", new OfferPageCommand("offerpage", "customer"));
 
     }
 
