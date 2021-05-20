@@ -57,5 +57,4 @@ public class BomMapperTest {
         System.out.println(value);
         assertEquals(2130 , value, 1);
     }
-
 }
