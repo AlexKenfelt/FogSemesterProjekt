@@ -19,9 +19,9 @@
         <c:set var="addHomeLink" value="${false}" scope="request"/>
     </jsp:attribute>
 
-    <p>Det samlet tilbud, plantegning og pris skal vises her</p>
-
     <jsp:body>
+        <p>Det samlet tilbud, plantegning og pris skal vises her</p>
+        ${requestScope.drawing}
 
     </jsp:body>
 </t:genericpage>
