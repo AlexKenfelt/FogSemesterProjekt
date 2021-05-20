@@ -46,5 +46,9 @@
         </div>
 
 
+
+        ${requestScope.drawing}
+
+
     </jsp:body>
 </t:genericpage>
