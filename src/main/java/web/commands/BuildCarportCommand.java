@@ -113,7 +113,7 @@ public class BuildCarportCommand extends CommandProtectedPage {
         double firstDistanceHulbånd = distance * 1;
         svg.addLine(firstDistanceHulbånd + 4.5, remDistance, secondDistance, width - remDistance);
         svg.addLine(secondDistance, remDistance, firstDistanceHulbånd + 4.5, width - remDistance);
-        
+
         //Save drawing
         request.setAttribute("drawing", svg.toString());
 
