@@ -18,14 +18,11 @@
             <div class="col-4 mx-auto text-center">
                 <h2 style="color:#0C2069" ;>Bestil din carport
 
-
                     <c:if test="${sessionScope.role == 'customer' }">
-                    <p style="font-size: larger">her min ven</p>
-                    <p><a href="${pageContext.request.contextPath}/fc/orderpage">Her!</a>
+                    <p><a href="${pageContext.request.contextPath}/fc/orderpage">her!</a>
                         </c:if>
                         <c:if test="${sessionScope.user == null}">
-                    <p style="font-size: larger">her min ven</p>
-                    <p><a href="${pageContext.request.contextPath}/fc/loginpage">Her!</a>
+                    <p><a href="${pageContext.request.contextPath}/fc/loginpage">her!</a>
                         </c:if>
                 </h2>
 
@@ -39,10 +36,7 @@
                     <p><a href="adminpage">Admin page</a>
                         </c:if>
 
-                        <c:if test="${sessionScope.role == 'customer' }">
 
-                    <p><a href="${pageContext.request.contextPath}/fc/customerpage">Customer Page</a></p>
-                        </c:if>
                 </div>
 
             </div>
