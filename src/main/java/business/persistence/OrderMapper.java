@@ -86,13 +86,13 @@ public class OrderMapper {
 
                 while (rs.next()) {
 
-                    //int id = rs.getInt("id");
+                    int id = rs.getInt("id");
                     double width = rs.getDouble("width");
                     double length = rs.getDouble("length");
                     String status = rs.getString("status");
                     Timestamp timestamp = rs.getTimestamp("timestamp");
 
-                    orders.add(new Order(width, length, status, timestamp));
+                    orders.add(new Order(id, width, length, status, timestamp));
                 }
                 return orders;
             } catch (SQLException ex) {

@@ -17,6 +17,7 @@ public class OfferPageCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
+
         return pageToShow;
     }
 

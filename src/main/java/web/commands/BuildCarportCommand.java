@@ -76,21 +76,6 @@ public class BuildCarportCommand extends CommandProtectedPage {
         //Save drawing
         request.setAttribute("drawing", svg.toString());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         return pageToShow;
     }
 }
