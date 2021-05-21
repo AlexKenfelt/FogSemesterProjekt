@@ -21,8 +21,8 @@ public class BomFacade {
         return bomMapper.getBomByOrderId(orderId);
 
 
-    public double getSummedPrice(Integer orderId) throws UserException {
-        return bomMapper.summedPrice(orderId);
+    //public double getSummedPrice(Integer orderId) throws UserException {
+        //return bomMapper.summedPrice(orderId);
 
     }
 }

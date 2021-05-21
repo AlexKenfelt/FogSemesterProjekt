@@ -39,7 +39,7 @@ public class OfferPageCommand extends Command {
 
         // total prisen skal laves færdig her. 
 
-        bomFacade.getSummedPrice(order.getId());
+        //bomFacade.getSummedPrice(order.getId());
 
 
 
