@@ -44,10 +44,15 @@
                         <td>${carportItems.description}</td>
                     </tr>
 
+
                     </c:forEach>
                 </table>
-                <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069">Betal</button>
             </div>
         </form>
+
+        ${requestScope.totalPrice}
+
+        <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069">Betal</button>
+
     </jsp:body>
 </t:genericpage>

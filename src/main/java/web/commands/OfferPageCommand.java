@@ -17,11 +17,6 @@ public class OfferPageCommand extends Command {
     public String pageToShow;
     OrderFacade orderFacade;
     BomFacade bomFacade;
-    CarportItems carportItems;
-    Database database;
-    Order order;
-
-
 
     public OfferPageCommand(String pageToShow, String role) {
         this.pageToShow = pageToShow;
@@ -33,15 +28,19 @@ public class OfferPageCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
+
         HttpSession session = request.getSession();
 
         User user;
-
-        // total prisen skal laves færdig her. 
-
-        //bomFacade.getSummedPrice(order.getId());
+        double totalPrice;
 
 
+        int orderId = 0;
+        orderId = Integer.parseInt(request.getParameter("content"));
+
+        totalPrice = bomFacade.getSummedPrice(orderId);
+
+       request.setAttribute("totalPrice", totalPrice);
 
         return pageToShow;
     }

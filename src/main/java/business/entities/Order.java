@@ -25,7 +25,8 @@ public class Order {
         this.status = "pending";
     }
 
-    public Order(double width, double length, String status, Timestamp timestamp) {
+    public Order(int id, double width, double length, String status, Timestamp timestamp) {
+        this.id = id;
         this.width = width;
         this.length = length;
         this.status = status;

@@ -16,8 +16,8 @@ public class BomMapper {
         this.database = database;
     }
 
-    public double summedPrice(int order_id) throws UserException {
-        double value = 0.0;
+    public int summedPrice(int order_id) throws UserException {
+        int value = 0;
 
         try (Connection connection = database.connect()) {
 
@@ -31,7 +31,7 @@ public class BomMapper {
                 while (rs.next()) {
                     String sum = rs.getString(1);
                     System.out.println(sum);
-                    value = Double.parseDouble(sum);
+                    value = Integer.parseInt(sum);
                 }
                 return value;
             } catch (SQLException ex) {
