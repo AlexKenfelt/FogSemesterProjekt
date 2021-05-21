@@ -6,7 +6,7 @@ import business.services.SVG;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class offerCommand extends BuildCarportCommand {
+public class offerCommand extends CommandProtectedPage {
     public String pageToShow;
 
     public offerCommand(String pageToShow, String role) {
