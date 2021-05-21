@@ -23,7 +23,7 @@
         <form name="receiptpage" action="${pageContext.request.contextPath}/fc/receiptpage" method="POST">
             <p>Det samlet tilbud, plantegning og pris skal vises her</p>
 
-            <div class="center">
+
                 <table class="table">
                     <thead>
                     <tr>
@@ -47,12 +47,12 @@
 
                     </c:forEach>
                 </table>
+            <div class="totheright">
+                <p>Dette er den totale pris for din carport: ${requestScope.totalPrice} kr.
+                <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069">Betal</button>
+                </p>
             </div>
         </form>
-
-        ${requestScope.totalPrice}
-
-        <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069">Betal</button>
 
     </jsp:body>
 </t:genericpage>
