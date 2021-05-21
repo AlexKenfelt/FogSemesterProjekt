@@ -36,10 +36,14 @@ public class OfferPageCommand extends Command {
         HttpSession session = request.getSession();
 
         User user;
+        double value;
+        int orderId;
 
-        // total prisen skal laves færdig her. 
+        // total prisen skal laves færdig her.
 
-        bomFacade.getSummedPrice(order.getId());
+
+       value = bomFacade.getSummedPrice(order.getId());
+       request.setAttribute("value", value);
 
 
 

@@ -19,10 +19,13 @@ public class BomFacade {
 
     public List<CarportItems> getBomByOrderId(Integer orderId) throws UserException {
         return bomMapper.getBomByOrderId(orderId);
+    }
 
 
     public double getSummedPrice(Integer orderId) throws UserException {
+
         return bomMapper.summedPrice(orderId);
+
 
     }
 }
