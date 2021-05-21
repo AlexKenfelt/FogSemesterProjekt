@@ -14,16 +14,21 @@
         <form method="post" action="${pageContext.request.contextPath}/fc/offerpage">
 
             <p> Velkommen ${sessionScope.user.name.toString()}, her vil du kunne se din ordre status når du har bestilt din carport. </p>
-            <p><a href="index">Til forsiden</a> <br> <a href="orderpage">Bestil din carport</a></p>
+            <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
+               href="${pageContext.request.contextPath}/fc/index">Til forsiden</a>
+            <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
+               href="${pageContext.request.contextPath}/fc/orderpage">Bestil din carport</a>
+
 
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Order Id</th>
-                    <th>Bredde</th>
-                    <th>Længde</th>
-                    <th>Status</th>
-                    <th>Tidspunkt</th>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Bredde</th>
+                    <th scope="col">Længde</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Tidspunkt</th>
+                    <th scope="col"> Se Indhold </th>
                 </thead>
                 </tr>
                 <tbody>
@@ -35,13 +40,14 @@
                         <td>${order.length}</td>
                         <td>${order.status}</td>
                         <td>${order.timestamp}</td>
-
+                        <td>
                         <a href="${pageContext.request.contextPath}/fc/offerpage">
-                            <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
+                            <button scope="col" class="btn btn-primary btn-sm"  style="background-color: #0C2069" type="submit" name="content"
                                     value="${order.id}">
                                 Se indhold
                             </button>
                         </a>
+                        </td>
                     </tr>
                 </c:forEach>
 
