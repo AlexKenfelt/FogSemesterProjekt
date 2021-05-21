@@ -44,6 +44,10 @@
         loggede ind som enten admin eller customer. -->
         <nav class="buttonImage" class="my-2 my-md-0 me-md-0" align="Right">
             <c:if test="${sessionScope.user != null }">
+                <c:if test="${sessionScope.role == 'customer' }">
+                    <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
+                          href="${pageContext.request.contextPath}/fc/customerpage">Profil</a>
+                </c:if>
                 <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
                    href="${pageContext.request.contextPath}/fc/index">Home</a>
                 <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
@@ -57,6 +61,10 @@
         <!-- Dette er den originale navigations bar du arbejdede på Maja -->
         <nav class="buttonImage" class="my-2 my-md-0 me-md-0" align="Right">
             <c:if test="${sessionScope.user == null }">
+                <c:if test="${sessionScope.role == 'customer' }">
+                    <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
+                          href="${pageContext.request.contextPath}/fc/customerpage">Profil</a>
+                </c:if>
                 <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
                    href="${pageContext.request.contextPath}/fc/index">Home</a>
                 <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
