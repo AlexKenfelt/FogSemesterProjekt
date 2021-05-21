@@ -28,14 +28,12 @@
             <p style="font-size: larger"> bredde: ${requestScope.width} </p>
             <p style="font-size: larger"> højde: ${requestScope.length} </p>
 
-            <div>
-                <a href="${pageContext.request.contextPath}/fc/offerpage">
-                    <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
-                            value="${order.id}">
-                        Gå til tilbuddet!
-                    </button>
-                </a>
-            </div>
+            <a href="${pageContext.request.contextPath}/fc/offerpage">
+                <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
+                        value="${order.id}">
+                    Gå til tilbuddet!
+                </button>
+            </a>
 
                 ${requestScope.drawing}
             <!-- Dette her data har ikke noget med databasen at gøre, så ingen data bliver gemt

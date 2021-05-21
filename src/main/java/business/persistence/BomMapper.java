@@ -42,8 +42,35 @@ public class BomMapper {
             throw new UserException("Connection to database could not be established");
         }
     }
-}
 
+    public List<CarportItems> getBomByOrderId(int orderId) throws UserException {
+        List<CarportItems> carportItemsList = new ArrayList<>();
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM partlistitem WHERE order_id = ?";
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, orderId);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int parts_id = rs.getInt("parts_id");
+                    String name = rs.getString("name");
+                    int quantity = rs.getInt("quantity");
+                    double length = rs.getDouble("length");
+                    String unit = rs.getString("unit");
+                    String description = rs.getString("description");
+                    int price = rs.getInt("price");
+
+                    CarportItems tmpCarportItem = new CarportItems(parts_id, name, quantity, length, unit, description, price);
+                    carportItemsList.add(tmpCarportItem);
+                }
+                return carportItemsList;
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException | UserException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+    }
+}
 
 
 
