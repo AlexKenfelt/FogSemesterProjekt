@@ -22,6 +22,8 @@
         <form name="receiptpage" action="${pageContext.request.contextPath}/fc/receiptpage" method="POST">
         <p>Det samlet tilbud, plantegning og pris skal vises her</p>
 
+        ${requestScope.totalPrice}
+
         <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069">Betal</button>
     </jsp:body>
 </t:genericpage>

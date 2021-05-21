@@ -106,15 +106,16 @@ public class BuildCarportCommand extends CommandProtectedPage {
             svg.addRect(secondDistance - 2.25, remDistance - 4.5 - 2.25, 9, 9);
         }
 
+        //Save drawing
+        request.setAttribute("drawing", svg.toString());
+
         //Draw Hulbånd
         double firstDistanceHulbånd = distance * 1;
         svg.addLine(firstDistanceHulbånd + 4.5, remDistance, secondDistance, width - remDistance);
         svg.addLine(secondDistance, remDistance, firstDistanceHulbånd + 4.5, width - remDistance);
 
-
         //Save drawing
         request.setAttribute("drawing", svg.toString());
-
 
         return pageToShow;
     }
