@@ -25,13 +25,13 @@
             <p style="font-size: larger"> Vi vil nu behandle din anmodning om en carport med målene: </p>
             <!-- Her requester vi om den data kunden indtastede på orderpage og der blev
             behandlet i vores BuildCarportCommand klasse. Og så bliver den displayet her -->
-            <p style="font-size: larger"> bredde: ${requestScope.width} </p>
-            <p style="font-size: larger"> højde: ${requestScope.length} </p>
+            <p style="font-size: larger"> Bredde: ${requestScope.width} </p>
+            <p style="font-size: larger"> Længde: ${requestScope.length} </p>
 
-            <a href="${pageContext.request.contextPath}/fc/offerpage">
+            <a href="${pageContext.request.contextPath}/fc/customerpage">
                 <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
                         value="${order.id}">
-                    Gå til tilbuddet!
+                    Tryk her for at gå til din side.
                 </button>
             </a>
 
