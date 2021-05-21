@@ -22,10 +22,11 @@ public class BomFacade {
     }
 
 
+
+
     public double getSummedPrice(Integer orderId) throws UserException {
 
         return bomMapper.summedPrice(orderId);
-
 
     }
 }

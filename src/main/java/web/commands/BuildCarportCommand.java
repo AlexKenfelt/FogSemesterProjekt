@@ -67,6 +67,13 @@ public class BuildCarportCommand extends CommandProtectedPage {
 
         request.setAttribute("order", order);
 
+
+        //Get all carportItems
+        List<CarportItems> carportItems = bomFacade.getBomByOrderId(order.getId());
+        session.setAttribute("carportItems", carportItems);
+
+
+        //Get bomByOrderId
         List<CarportItems> carportItemsList = bomFacade.getBomByOrderId(order.getId());
 
         //Draw Carport

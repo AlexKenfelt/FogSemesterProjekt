@@ -34,6 +34,7 @@ public class OfferPageCommand extends Command {
         User user;
         double totalPrice;
 
+
         int orderId = 0;
         orderId = Integer.parseInt(request.getParameter("content"));
 
