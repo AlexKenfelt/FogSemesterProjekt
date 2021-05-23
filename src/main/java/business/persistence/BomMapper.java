@@ -2,7 +2,6 @@ package business.persistence;
 
 import business.entities.CarportItems;
 import business.exceptions.UserException;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
