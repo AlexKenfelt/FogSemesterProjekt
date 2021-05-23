@@ -2,7 +2,6 @@ package business.persistence;
 
 import business.entities.Parts;
 import business.exceptions.UserException;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
