@@ -19,10 +19,10 @@
                 <h2 style="color:#0C2069" ;>Bestil din carport
 
                     <c:if test="${sessionScope.role == 'customer' }">
-                    <p><a href="${pageContext.request.contextPath}/fc/orderpage">her!</a>
+                    <a style="color:#0C2069" href="${pageContext.request.contextPath}/fc/orderpage">her!</a>
                         </c:if>
                         <c:if test="${sessionScope.user == null}">
-                    <p><a href="${pageContext.request.contextPath}/fc/loginpage">her!</a>
+                    <a style="color:#0C2069" href="${pageContext.request.contextPath}/fc/loginpage">her!</a>
                         </c:if>
                 </h2>
 

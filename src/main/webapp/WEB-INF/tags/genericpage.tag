@@ -40,6 +40,7 @@
             <img src="${pageContext.request.contextPath}/images/header.png" class="img-fluid mb-0"/>
         </div>
 
+
         <!-- Dette kan nok sagtens gøres smartere, men der var ikke nogen navigations bar når man
         loggede ind som enten admin eller customer. -->
         <nav class="buttonImage" class="my-2 my-md-0 me-md-0" align="Right">
@@ -106,9 +107,10 @@
 
 <!-- Footer -->
 <div class="container">
+
     <footer class="page-footer font-small blue myfooter">
         <div class="footer-copyright text-center py-3">
-            <img src="${pageContext.request.contextPath}/images/1.png" style="width: 100%;">
+            <img src="${pageContext.request.contextPath}/images/1.png" style="width: 100%"  class="d-inline-block align-middle mr-2 img-fluid">
             <div class="centered">Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439</div>
         </div>
         <%--<div class="container">
@@ -119,6 +121,8 @@
             </div>
             <jsp:invoke fragment="footer"/>
         </div>--%>
+
+
     </footer>
 </div>
 </body>
