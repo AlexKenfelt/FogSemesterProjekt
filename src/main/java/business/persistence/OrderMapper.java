@@ -178,7 +178,7 @@ public class OrderMapper
     }
 
     //This is where you can get a specific order id from the database.
-    public int getOrderId() throws UserException 
+    public int getOrderId() throws UserException
     { //TODO: This method is not used anywhere, should we remove it?
         int id = 0;
         try (Connection connection = database.connect())
