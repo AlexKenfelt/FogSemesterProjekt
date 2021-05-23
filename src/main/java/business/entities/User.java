@@ -1,20 +1,21 @@
 package business.entities;
 
-public class User {
-
+public class User
+{
     private int id; // just used to demo retrieval of autogen keys in UserMapper
     private String email;
     private String password; // Should be hashed and secured
     private String role;
 
-    //Our additions.
+    //Our additional variables to this class are the following below.
     private String name;
     private String address;
     private String postal;
     private String city;
     private String phone;
 
-    public User(String email, String password, String role, String name, String address, String postal, String city, String phone) {
+    public User(String email, String password, String role, String name, String address, String postal, String city, String phone)
+    {
         this.email = email;
         this.password = password;
         this.role = role;
@@ -25,13 +26,15 @@ public class User {
         this.phone = phone;
     }
 
-    public User (String email, String password, String role) {
+    public User(String email, String password, String role)
+    {
         this.email = email;
         this.password = password;
         this.role = role;
     }
 
-    public User(int id) {
+    public User(int id)
+    {
         this.id = id;
         this.email = "";
         this.password = "";
@@ -41,86 +44,87 @@ public class User {
         this.postal = "";
         this.city = "";
         this.phone = "";
-
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public String getAddress() {
+    public String getAddress()
+    {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPostal() {
+    public String getPostal()
+    {
         return postal;
     }
 
-    public void setPostal(String postal) {
-        this.postal = postal;
-    }
-
-    public String getCity() {
+    public String getCity()
+    {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getPhone() {
+    public String getPhone()
+    {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 
-    public String getPassword() {
+    public String getPassword()
+    {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password)
+    {
         this.password = password;
     }
 
-    public String getRole() {
+    public String getRole()
+    {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(String role)
+    {
         this.role = role;
     }
 
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int id)
+    {
         this.id = id;
     }
 
     @Override
-    public String toString() {
-        return ("Customer ID - " + id +
-                "\n" + "Email - " + email +
-                "\n" +  "password - " + password +
-                "\n" + "User role - " + role);
+    public String toString()
+    {
+        return
+        (
+        "Customer ID = " + id +
+        ", Email = " + email +
+        ", password = " + password +
+        ", User role = " + role
+        );
     }
 }
