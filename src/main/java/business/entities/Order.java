@@ -98,7 +98,7 @@ public class Order
     @Override
     public String toString()
     {
-        return 
+        return
         (
                 "id = " + id +
                 ", width = " + width +
