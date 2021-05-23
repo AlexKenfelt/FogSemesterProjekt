@@ -5,12 +5,13 @@ import java.util.List;
 
 public class Bom {
 
-    CarportItems carportItems;
+    //CarportItems carportItems;
 
 
     private List<CarportItems> bomLines;
 
-    public Bom() {
+    public Bom()
+    {
         this.bomLines = new ArrayList<>();
     }
 

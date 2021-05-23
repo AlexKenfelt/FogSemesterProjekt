@@ -23,7 +23,7 @@ public class OrderMapper {
         int orderId = 0;
         try (Connection connection = database.connect()) {
             String sql = "INSERT INTO orders (width, length, status, user_id, timestamp) VALUES (?,?,?,?,?)";
-            User user = null;
+            //User user = null;
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setDouble(1, order.getWidth());
                 ps.setDouble(2, order.getLength());
