@@ -76,13 +76,13 @@ public class CarportItems
     {
         return
         (
-                "parts_id = " + parts_id +
-                ", name = " + name +
-                ", quantity = " + quantity +
-                ", length = " + length +
-                ", unit = " + unit +
-                ", description = " + description +
-                ", price = " + price
+        "parts_id = " + parts_id +
+        ", name = " + name +
+        ", quantity = " + quantity +
+        ", length = " + length +
+        ", unit = " + unit +
+        ", description = " + description +
+        ", price = " + price
         );
     }
 }
