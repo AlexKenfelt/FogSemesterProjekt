@@ -9,7 +9,7 @@ import java.util.List;
 public class UserFacade
 {
     UserMapper userMapper;
-    
+
     //The Constructor.
     public UserFacade(Database database)
     {
