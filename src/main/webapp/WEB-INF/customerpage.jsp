@@ -33,37 +33,31 @@
                 </thead>
                 </tr>
                 <tbody>
-                <tr>
-                  
-                        <c:forEach var="order" items="${sessionScope.orders}">
+                <c:forEach var="status" items="${sessionScope.status}">
+                <c:forEach var="order" items="${sessionScope.orders}">
+
+                        <tr>
                             <td>${order.id}</td>
                             <td>${order.width}</td>
                             <td>${order.length}</td>
-                        </c:forEach>
-                        <c:forEach var="status" items="${sessionScope.status}">
-                            <td>${status}</td>
-                        </c:forEach>
-                        <c:forEach var="order" items="${sessionScope.orders}">
+                            <td>${status.status}</td>
                             <td>${order.timestamp}</td>
-                        </c:forEach>
-                        <td>
-                            <c:if test="${sessionScope.status == confirmed}">
+                            <td><c:if test="${sessionScope.status != pending}">
                                 <a href="${pageContext.request.contextPath}/fc/offerpage">
-                                    <button scope="col" class="btn btn-primary btn-sm" style="background-color: #0C2069"
+                                    <button scope="col" class="btn btn-primary btn-sm"
+                                            style="background-color: #0C2069"
                                             type="submit" name="content"
                                             value="${order.id}">
                                         Se indhold
                                     </button>
                                 </a>
-                            </c:if>
-                        </td>
-
-                </tr>
+                            </c:if></td>
+                        </tr>
+                    </c:forEach>
+                </c:forEach>
                 </tbody>
             </table>
-
         </form>
-
     </jsp:body>
 </t:genericpage>
 

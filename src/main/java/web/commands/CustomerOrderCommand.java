@@ -8,7 +8,9 @@ import business.services.OrderFacade;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CustomerOrderCommand extends CommandProtectedPage {
 
@@ -30,6 +32,12 @@ public class CustomerOrderCommand extends CommandProtectedPage {
 
         List<Order> orders = orderFacade.getOrderByCustomerId(user.getId());
         List<Order> status = orderFacade.getOrderStatus(user.getId());
+
+        //Set setorders = new HashSet();
+        //for (Order order: orders) {
+        //    setorders.add(orderFacade.getOrderByCustomerId(user.getId()));
+        //}
+        
         session.setAttribute("orders", orders);
         session.setAttribute("status",status);
 
