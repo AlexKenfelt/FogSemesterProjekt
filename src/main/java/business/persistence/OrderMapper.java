@@ -12,9 +12,13 @@ import java.util.List;
 public class OrderMapper
 {
    private Database database;
+   private long now = System.currentTimeMillis();
+   private Timestamp sqlTimestamp = new Timestamp(now);
 
     public OrderMapper(Database database)
     {
+        this.now = now;
+        this.sqlTimestamp = sqlTimestamp;
         this.database = database;
     }
 
@@ -31,7 +35,7 @@ public class OrderMapper
                 ps.setDouble(2, order.getLength());
                 ps.setString(3, order.getStatus());
                 ps.setInt(4, userId);
-                ps.setTimestamp(5, order.getTimestamp());
+                ps.setTimestamp(5, sqlTimestamp);
                 ps.executeUpdate();
 
                 ResultSet ids = ps.getGeneratedKeys();

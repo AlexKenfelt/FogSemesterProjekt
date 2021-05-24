@@ -82,10 +82,9 @@ class OrderMapperTest {
         Order order = new Order(id, width, length, status, user, timestamp);
         Bom bom = new Bom();
 
+        //Order newOrder =
         orderMapper.createOrder(order, user_id, bom);
-
-        assertEquals(4, 4);
-
+        assertEquals(4, 4);//newOrder.getId());
     }
 
     @Test
