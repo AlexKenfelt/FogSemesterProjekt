@@ -18,7 +18,7 @@ public class Order
         this.id = id;
         this.width = width;
         this.length = length;
-        this.status = "pending";
+        this.status = status;
         this.user = user;
         this.timestamp = timestamp;
     }
@@ -27,7 +27,6 @@ public class Order
     {
         this.width = width;
         this.length = length;
-        this.status = "pending";
     }
 
     public Order(int id, double width, double length, String status, Timestamp timestamp)
@@ -36,7 +35,7 @@ public class Order
         this.width = width;
         this.length = length;
         this.status = status;
-        this.status = "pending";
+        this.status = status;
         this.timestamp = timestamp;
     }
 

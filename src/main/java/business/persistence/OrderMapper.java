@@ -24,12 +24,13 @@ public class OrderMapper {
     //Here we add our order to the database and "insertIntoPartListItem" is called foreach order to add order_id.
     public void createOrder(Order order, int userId, Bom bom) throws Exception {
         int orderId = 0;
+        String status = "pending";
         try (Connection connection = database.connect()) {
             String sql = "INSERT INTO orders (width, length, status, user_id, timestamp) VALUES (?,?,?,?,?)";
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setDouble(1, order.getWidth());
                 ps.setDouble(2, order.getLength());
-                ps.setString(3, order.getStatus());
+                ps.setString(3, status);
                 ps.setInt(4, userId);
                 ps.setTimestamp(5, sqlTimestamp);
                 ps.executeUpdate();

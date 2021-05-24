@@ -31,15 +31,10 @@ public class CustomerOrderCommand extends CommandProtectedPage {
         User user = (User) session.getAttribute("user");
 
         List<Order> orders = orderFacade.getOrderByCustomerId(user.getId());
-        List<Order> status = orderFacade.getOrderStatus(user.getId());
-
-        //Set setorders = new HashSet();
-        //for (Order order: orders) {
-        //    setorders.add(orderFacade.getOrderByCustomerId(user.getId()));
-        //}
+        //List<Order> status = orderFacade.getOrderStatus(user.getId());
         
         session.setAttribute("orders", orders);
-        session.setAttribute("status",status);
+        //session.setAttribute("status",status);
 
         return pageToShow;
     }

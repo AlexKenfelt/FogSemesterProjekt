@@ -18,38 +18,30 @@ public class OfferPageCommand extends Command {
     OrderFacade orderFacade;
     BomFacade bomFacade;
 
-    public OfferPageCommand(String pageToShow, String role) {
+    public OfferPageCommand(String pageToShow, String role)
+    {
         this.pageToShow = pageToShow;
         this.role = role;
         this.orderFacade = new OrderFacade(database);
         this.bomFacade = new BomFacade(database);
-
     }
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
-
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException
+    {
         HttpSession session = request.getSession();
-
         User user;
         double totalPrice;
-
-
         int orderId = 0;
-        orderId = Integer.parseInt(request.getParameter("content"));
 
-        totalPrice = bomFacade.getSummedPrice(orderId);
-
+       orderId = Integer.parseInt(request.getParameter("content"));
+       totalPrice = bomFacade.getSummedPrice(orderId);
        request.setAttribute("totalPrice", totalPrice);
 
         return pageToShow;
     }
-
-    public String getRole() {
+    public String getRole()
+    {
         return role;
     }
-
-
-
-
 }
