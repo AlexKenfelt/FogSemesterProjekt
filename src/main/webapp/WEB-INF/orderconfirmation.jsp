@@ -28,8 +28,9 @@
             <p style="font-size: larger"> Bredde: ${requestScope.width} </p>
             <p style="font-size: larger"> Længde: ${requestScope.length} </p>
 
+
             <a href="${pageContext.request.contextPath}/fc/customerpage">
-                <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
+                <button scope="col" class="btn btn-sm btn-outline-light" name="content" style="background-color: #0C2069"
                         value="${order.id}">
                     Tryk her for at gå til din side.
                 </button>
