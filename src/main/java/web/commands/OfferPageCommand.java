@@ -29,14 +29,19 @@ public class OfferPageCommand extends CommandProtectedPage
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException
     {
        HttpSession session = request.getSession();
+
+       //Variables needed.
        double totalPrice;
        int orderId;
 
+       //Here we pull the orderID from the sessionScope.
        orderId = Integer.parseInt(request.getParameter("content"));
+
+       //That order ID is now used to display total price on the order.
        totalPrice = bomFacade.getSummedPrice(orderId);
        request.setAttribute("totalPrice", totalPrice);
 
-       //Get all carportItems
+       //And order ID is used here to pull the whole Bill of Materials from the DB.
        List<CarportItems> carportItems = bomFacade.getBomByOrderId((orderId));
        session.setAttribute("carportItems", carportItems);
 
