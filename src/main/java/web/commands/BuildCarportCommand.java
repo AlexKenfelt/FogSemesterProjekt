@@ -110,7 +110,7 @@ public class BuildCarportCommand extends CommandProtectedPage
                 svg.addRect(firstDistance + distanceBetween * x - 2.25,width - remDistance - 2.25, 9, 9);
                 svg.addRect(firstDistance + distanceBetween * x - 2.25, remDistance - 4.5 - 2.25, 9, 9);
             }
-        } 
+        }
         else
         {
             firstDistance = distance * 1;

@@ -2,12 +2,9 @@ package business.services;
 
 import business.entities.CarportItems;
 import business.exceptions.UserException;
-import business.persistence.BomMapper;
 import business.persistence.Database;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class BomServiceTest {
@@ -20,26 +17,25 @@ class BomServiceTest {
 
     private static Database database;
     private static BomService bomService;
-    private String unit;
-    int parts_id;
-    String name;
     CarportItems quantity;
-    String desc;
-    int price;
 
     @BeforeAll
-    public static void setUpClass() {
-        try {
+    public static void setUpClass()
+    {
+        try
+        {
             database = new Database(USER, PASSWORD, URL);
             bomService = new BomService(database);
-        } catch (ClassNotFoundException e) {
+        }
+        catch (ClassNotFoundException e)
+        {
             fail("Database connection failed. Missing jdbc driver");
         }
     }
 
     @Test
-    void calculatePostsTest(double length) throws UserException {
-        //CarportItems tmpCarportItems = new CarportItems(parts_id, name, quantity, length, unit, desc, price);
+    void calculatePostsTest(double length) throws UserException
+    {
         length = 700;
         quantity = bomService.calculatePosts(length);
         System.out.println(quantity.getQuantity());
@@ -47,10 +43,21 @@ class BomServiceTest {
     }
 
     @Test
-    void calculateBeamsTest() {
+    void calculateBeamsTest(double length) throws UserException
+    {
+        length = 700;
+        quantity = bomService.calculateBeams(length);
+        System.out.println(quantity.getQuantity());
+        assertEquals(2 , quantity.getQuantity());
     }
 
     @Test
-    void calculateRaftersTest() {
+    void calculateRaftersTest(double width, double length) throws UserException
+    {
+        length = 700;
+        width = 700;
+        quantity = bomService.calculateRafters(width, length);
+        System.out.println(quantity.getQuantity());
+        assertEquals(13 , quantity.getQuantity());
     }
 }
