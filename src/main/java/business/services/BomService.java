@@ -22,9 +22,9 @@ public class BomService
         int parts_id = parts.getId();
 
         //Hardcoded parts info.
-        String name = "25x200mm. trykimp. Brædt";
+        String name = "Trykimp. Stopler";
         String unit = "stk.";
-        String desc = "This is a description of how to use this item.";
+        String desc = "Stolper nedgraves 90 cm. i jord.";
 
         //The variables.
         int price;
@@ -56,9 +56,9 @@ public class BomService
         int parts_id = parts.getId();
 
         //Hardcoded parts info.
-        String name = "25x200mm. trykimp. Brædt";
+        String name = "trykimp. Brædt";
         String unit = "stk.";
-        String desc = "This is a description of how to use this item.";
+        String desc = "Understernbrædder til for & bag ende.";
 
         //The variables.
         int price;
@@ -82,9 +82,9 @@ public class BomService
         int parts_id = parts.getId();
 
         //Hardcoded parts info.
-        String name = "25x200mm. trykimp. Brædt";
+        String name = "Spærtræ ubh";
         String unit = "stk.";
-        String desc = "This is a description of how to use this item.";
+        String desc = "Spær monteres på rem.";
 
         //The variables.
         int price;
