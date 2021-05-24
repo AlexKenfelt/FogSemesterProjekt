@@ -70,7 +70,7 @@
                     </div>
                 </div>
 
-                <input class="btn btn-primary" type="submit" type="submit" value="Submit">
+                <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069" type="submit" value="Submit">Opret bruger</button>
             </form>
 
             <c:if test="${requestScope.error != null }">
