@@ -21,7 +21,7 @@
 
     <jsp:body>
 
-        <div>
+        <br>
             <p style="font-size: larger"> Vi vil nu behandle din anmodning om en carport med målene: </p>
             <!-- Her requester vi om den data kunden indtastede på orderpage og der blev
             behandlet i vores BuildCarportCommand klasse. Og så bliver den displayet her -->

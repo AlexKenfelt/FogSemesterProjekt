@@ -14,7 +14,7 @@
         <form method="post" action="${pageContext.request.contextPath}/fc/adminpage">
             <h1>Hello ${sessionScope.email} </h1>
             Admin siden
-          <!--  <script language="javascript" type="text/javascript">
+            <!--  <script language="javascript" type="text/javascript">
                 function doSubmit() {
                     window.open("orderhandlerpage.jsp", "_self");
                 }
@@ -22,38 +22,31 @@
             </script> -->
             <a href="orderhandlerpage">Rediger ordre</a>
             <table class="table">
-
-
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Bredde</th>
                     <th scope="col">Længde</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Bruger</th>
                     <th scope="col">Tidspunkt</th>
+                    <th scope="col">Telefon</th>
                 </thead>
                 </tr>
                 <tbody>
-                <c:forEach var="order" items="${sessionScope.orderList}">
 
-                    <tr>
-                        <td>${order.id}</td>
-                        <td>${order.width}</td>
-                        <td>${order.length}</td>
-                        <td>${order.status}</td>
-                        <c:forEach var="user" items="${sessionScope.userlist}">
-                            <tr>
-                            <td>${user.phone}</td>
-                            </tr>
-                        </c:forEach>
-                        <td>${order.timestamp}</td>
-                    </tr>
-                </c:forEach>
+                <c:forEach var="order" items="${sessionScope.orderList}">
+                        <tr>
+                            <td>${order.id}</td>
+                            <td>${order.width}</td>
+                            <td>${order.length}</td>
+                            <td>${order.status}</td>
+                            <td>${order.timestamp}</td>
+                            <td>${order.user.phone}</td>
+                        </tr>
+                    </c:forEach>
 
                 </tbody>
             </table>
-
         </form>
 
     </jsp:body>

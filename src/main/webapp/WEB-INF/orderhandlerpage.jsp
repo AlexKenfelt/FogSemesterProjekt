@@ -14,28 +14,23 @@
         <form name="statusconfirmationpage" action="${pageContext.request.contextPath}/fc/statusconfirmationpage" method="POST">
         <h1>Hello ${sessionScope.email} </h1>
         Admin siden
-            <div class="row mb-3">
-                <label class="col-sm-1 col-form-label" for="id">id</label>
-                <div class="col-sm-4">
-                    <input class="form-control" type="number" step="1" name="id" id="id">
-                </div>
-            </div>
             <table class="table">
             <thead>
             <tr>
-                <th scope="col">Bruger ID</th>
                 <th scope="col">Ordrer ID</th>
+                <th scope="col">Bruger ID</th>
                 <th scope="col">Pris</th>
                 <th scope="col">Tidspunkt</th>
                 <th scope="col">Indhold</th>
                 <th scope="col">Fjern</th>
+                <th scope="col">Bekræft ordre</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach var="order" items="${sessionScope.orderList}">
                 <tr>
                     <td>${order.id}</td>
-                    <td>${order.user}</td>
+                    <td>${order.user.id}</td>
                     <td>${order.status}</td>
                     <td>${order.timestamp}</td>
                     <td>
@@ -51,6 +46,8 @@
                                 value="${order.id}">
                             Fjern
                         </button>
+                    </td>
+                    <td>
                         <button name="confirm" type="submit" value="${order.id}" class="btn btn-primary checkoutbtn">Confirm order</button>
 
 

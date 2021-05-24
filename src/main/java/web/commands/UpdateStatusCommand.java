@@ -28,15 +28,12 @@ public class UpdateStatusCommand extends CommandProtectedPage {
 
         try
         {
-            id = Integer.parseInt(request.getParameter("id"));
+            id = Integer.parseInt(request.getParameter("confirm"));
         } catch (NumberFormatException ex)
         {
             throw new UserException("Id is missing");
         }
-
         request.setAttribute("id", id);
-
-
 
 
         //This is where we confirm the orders.
