@@ -18,21 +18,22 @@
             <table class="table">
             <thead>
             <tr>
-                <th scope="col">Bruger ID</th>
                 <th scope="col">Ordrer ID</th>
+                <th scope="col">Bruger ID</th>
                 <th scope="col">Pris</th>
                 <th scope="col">Tidspunkt</th>
                 <th scope="col">Indhold</th>
                 <th scope="col">Fjern</th>
+                <th scope="col">Bekræft ordre</th>
             </tr>
             </thead>
-            <tbody>
-            <c:forEach var="order" items="${sessionScope.orderList}">
-                <tr>
-                    <td>${order.id}</td>
-                    <td>${order.user}</td>
-                    <td>${order.status}</td>
-                    <td>${order.timestamp}</td>
+                <tbody>
+                <c:forEach var="order" items="${sessionScope.orderList}">
+                    <tr>
+                        <td>${order.id}</td>
+                        <td>${order.user.id}</td>
+                        <td>${order.status}</td>
+                        <td>${order.timestamp}</td>
                     <td>
                         <a href="${pageContext.request.contextPath}/fc/orderhandlerpage">
                             <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
