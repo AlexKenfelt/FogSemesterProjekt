@@ -33,16 +33,15 @@
                 </thead>
                 </tr>
                 <tbody>
-                <c:forEach var="status" items="${sessionScope.status}">
                 <c:forEach var="order" items="${sessionScope.orders}">
 
                         <tr>
                             <td>${order.id}</td>
                             <td>${order.width}</td>
                             <td>${order.length}</td>
-                            <td>${status.status}</td>
+                            <td>${order.status}</td>
                             <td>${order.timestamp}</td>
-                            <td><c:if test="${sessionScope.status != pending}">
+                            <td><c:if test="${sessionScope.status.equals(order.status)}">
                                 <a href="${pageContext.request.contextPath}/fc/offerpage">
                                     <button scope="col" class="btn btn-primary btn-sm"
                                             style="background-color: #0C2069"
@@ -54,7 +53,6 @@
                             </c:if></td>
                         </tr>
                     </c:forEach>
-                </c:forEach>
                 </tbody>
             </table>
         </form>
