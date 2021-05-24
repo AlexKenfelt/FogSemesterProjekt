@@ -34,7 +34,9 @@
                 <c:if test="${not empty param.msg}">
                     <p style="font-size: large">${param.msg}</p>
                 </c:if>
-                <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069" type="submit" value="Login">Sign in</button>
+                <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069" type="submit"
+                        value="Login">Sign in
+                </button>
             </form>
         </div>
     </jsp:body>

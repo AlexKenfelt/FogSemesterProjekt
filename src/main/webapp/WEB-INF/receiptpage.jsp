@@ -23,7 +23,7 @@
         <h2 style="color:#0C2069">Ordrebekræftelse </h2>
         <br>
         <p>Tak for at handle hos os, vi sender dine materialer snarest muligt. </p>
-            <br>
+        <br>
 
 
     </jsp:body>

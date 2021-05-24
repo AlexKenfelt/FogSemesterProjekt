@@ -19,11 +19,11 @@
                 <h2 style="color:#0C2069" ;>Bestil din carport
 
                     <c:if test="${sessionScope.role == 'customer' }">
-                    <a style="color:#0C2069" href="${pageContext.request.contextPath}/fc/orderpage">her!</a>
-                        </c:if>
-                        <c:if test="${sessionScope.user == null}">
-                    <a style="color:#0C2069" href="${pageContext.request.contextPath}/fc/loginpage">her!</a>
-                        </c:if>
+                        <a style="color:#0C2069" href="${pageContext.request.contextPath}/fc/orderpage">her!</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user == null}">
+                        <a style="color:#0C2069" href="${pageContext.request.contextPath}/fc/loginpage">her!</a>
+                    </c:if>
                 </h2>
 
                 <img src="${pageContext.request.contextPath}/images/Carport.png" class="img-fluid mb-4 text-center"

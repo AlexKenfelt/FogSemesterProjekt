@@ -12,21 +12,21 @@
 
     <jsp:body>
         <form method="POST" action="${pageContext.request.contextPath}/fc/statusconfirmationpage">
-        <h1>Hello ${sessionScope.email} </h1>
-        Admin siden
+            <h1>Hello ${sessionScope.email} </h1>
+            Admin siden
 
             <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Ordrer ID</th>
-                <th scope="col">Bruger ID</th>
-                <th scope="col">Pris</th>
-                <th scope="col">Tidspunkt</th>
-                <th scope="col">Indhold</th>
-                <th scope="col">Fjern</th>
-                <th scope="col">Bekræft ordre</th>
-            </tr>
-            </thead>
+                <thead>
+                <tr>
+                    <th scope="col">Ordrer ID</th>
+                    <th scope="col">Bruger ID</th>
+                    <th scope="col">Pris</th>
+                    <th scope="col">Tidspunkt</th>
+                    <th scope="col">Indhold</th>
+                    <th scope="col">Fjern</th>
+                    <th scope="col">Bekræft ordre</th>
+                </tr>
+                </thead>
                 <tbody>
                 <c:forEach var="order" items="${sessionScope.orderList}">
                     <tr>
@@ -34,25 +34,27 @@
                         <td>${order.user.id}</td>
                         <td>${order.status}</td>
                         <td>${order.timestamp}</td>
-                    <td>
-                        <a href="${pageContext.request.contextPath}/fc/orderhandlerpage">
-                            <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
+                        <td>
+                            <a href="${pageContext.request.contextPath}/fc/orderhandlerpage">
+                                <button scope="col" class="btn btn-primary btn-sm" type="submit" name="content"
+                                        value="${order.id}">
+                                    Se indhold
+                                </button>
+                            </a>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" type="submit" name="delete"
                                     value="${order.id}">
-                                Se indhold
+                                Fjern
                             </button>
-                        </a>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm" type="submit" name="delete"
-                                value="${order.id}">
-                            Fjern
-                        </button>
-                        <button name="confirm" type="submit" value="${order.id}" class="btn btn-primary checkoutbtn">Confirm order</button>
+                            <button name="confirm" type="submit" value="${order.id}"
+                                    class="btn btn-primary checkoutbtn">Confirm order
+                            </button>
 
-                    </td>
-                </tr>
-            </c:forEach>
-            </tbody>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
             </table>
         </form>
 

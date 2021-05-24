@@ -35,15 +35,15 @@
                 <tbody>
 
                 <c:forEach var="order" items="${sessionScope.orderList}">
-                        <tr>
-                            <td>${order.id}</td>
-                            <td>${order.width}</td>
-                            <td>${order.length}</td>
-                            <td>${order.status}</td>
-                            <td>${order.timestamp}</td>
-                            <td>${order.user.phone}</td>
-                        </tr>
-                    </c:forEach>
+                    <tr>
+                        <td>${order.id}</td>
+                        <td>${order.width}</td>
+                        <td>${order.length}</td>
+                        <td>${order.status}</td>
+                        <td>${order.timestamp}</td>
+                        <td>${order.user.phone}</td>
+                    </tr>
+                </c:forEach>
 
                 </tbody>
             </table>

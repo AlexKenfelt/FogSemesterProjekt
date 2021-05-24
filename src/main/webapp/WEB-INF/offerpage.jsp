@@ -24,32 +24,32 @@
             <p>Det samlet tilbud, plantegning og pris skal vises her</p>
 
 
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Beskrivelse</th>
-                        <th scope="col">Antal</th>
-                        <th scope="col">Enhed</th>
-                        <th scope="col">Beskrivelse</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Beskrivelse</th>
+                    <th scope="col">Antal</th>
+                    <th scope="col">Enhed</th>
+                    <th scope="col">Beskrivelse</th>
+                </tr>
+                </thead>
+                <tbody>
 
-                    <c:forEach var="carportItems" items="${sessionScope.carportItems}">
+                <c:forEach var="carportItems" items="${sessionScope.carportItems}">
 
-                    <tr>
-                        <td>${carportItems.name}</td>
-                        <td>${carportItems.quantity}</td>
-                        <td>${carportItems.unit}</td>
-                        <td>${carportItems.description}</td>
-                    </tr>
+                <tr>
+                    <td>${carportItems.name}</td>
+                    <td>${carportItems.quantity}</td>
+                    <td>${carportItems.unit}</td>
+                    <td>${carportItems.description}</td>
+                </tr>
 
 
-                    </c:forEach>
-                </table>
+                </c:forEach>
+            </table>
             <div class="totheright">
                 <p>Dette er den totale pris for din carport: ${requestScope.totalPrice} kr.
-                <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069">Betal</button>
+                    <button class="btn btn-sm btn-outline-light" style="background-color: #0C2069">Betal</button>
                 </p>
             </div>
         </form>

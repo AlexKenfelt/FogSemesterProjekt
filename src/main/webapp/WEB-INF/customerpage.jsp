@@ -34,24 +34,24 @@
                 </tr>
                 <tbody>
                 <c:forEach var="order" items="${sessionScope.orders}">
-                        <tr>
-                            <td>${order.id}</td>
-                            <td>${order.width}</td>
-                            <td>${order.length}</td>
-                            <td>${order.status}</td>
-                            <td>${order.timestamp}</td>
-                            <td><c:if test="${!order.status.equals('pending')}">
-                                <a href="${pageContext.request.contextPath}/fc/offerpage">
-                                    <button scope="col" class="btn btn-primary btn-sm"
-                                            style="background-color: #0C2069"
-                                            type="submit" name="content"
-                                            value="${order.id}">
-                                        Se indhold
-                                    </button>
-                                </a>
-                            </c:if></td>
-                        </tr>
-                    </c:forEach>
+                    <tr>
+                        <td>${order.id}</td>
+                        <td>${order.width}</td>
+                        <td>${order.length}</td>
+                        <td>${order.status}</td>
+                        <td>${order.timestamp}</td>
+                        <td><c:if test="${!order.status.equals('pending')}">
+                            <a href="${pageContext.request.contextPath}/fc/offerpage">
+                                <button scope="col" class="btn btn-primary btn-sm"
+                                        style="background-color: #0C2069"
+                                        type="submit" name="content"
+                                        value="${order.id}">
+                                    Se indhold
+                                </button>
+                            </a>
+                        </c:if></td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </form>

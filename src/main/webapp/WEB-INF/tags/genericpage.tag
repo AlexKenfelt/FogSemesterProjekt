@@ -47,7 +47,7 @@
             <c:if test="${sessionScope.user != null }">
                 <c:if test="${sessionScope.role == 'customer' }">
                     <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
-                          href="${pageContext.request.contextPath}/fc/customerpage">Profil</a>
+                       href="${pageContext.request.contextPath}/fc/customerpage">Profil</a>
                 </c:if>
                 <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
                    href="${pageContext.request.contextPath}/fc/index">Home</a>
@@ -64,7 +64,7 @@
             <c:if test="${sessionScope.user == null }">
                 <c:if test="${sessionScope.role == 'customer' }">
                     <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
-                          href="${pageContext.request.contextPath}/fc/customerpage">Profil</a>
+                       href="${pageContext.request.contextPath}/fc/customerpage">Profil</a>
                 </c:if>
                 <a type="button" class="btn btn-sm btn-outline-light" style="background-color: #0C2069"
                    href="${pageContext.request.contextPath}/fc/index">Home</a>
@@ -110,7 +110,8 @@
 
     <footer class="page-footer font-small blue myfooter">
         <div class="footer-copyright text-center py-3">
-            <img src="${pageContext.request.contextPath}/images/1.png" style="width: 100%"  class="d-inline-block align-middle mr-2 img-fluid">
+            <img src="${pageContext.request.contextPath}/images/1.png" style="width: 100%"
+                 class="d-inline-block align-middle mr-2 img-fluid">
             <div class="centered">Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439</div>
         </div>
         <%--<div class="container">
