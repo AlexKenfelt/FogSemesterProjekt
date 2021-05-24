@@ -1,14 +1,18 @@
 package business.services;
 
-public class SVG {
+public class SVG
+{
+    //Making a svg object of the StringBuilder class.
     StringBuilder svg = new StringBuilder();
 
+    //Creating the needed variables.
     private int x;
     private int y;
     private String viewBox;
     private int width;
     private int height;
 
+    //Below here we have some Strings that does what?
     private final String headerTemplate = "<svg height=\"%d%%\" " +
             "width=\"%d%%\" " +
             "viewBox=\"%s\" " +
@@ -49,7 +53,9 @@ public class SVG {
 
     private final String roofTemplate = "<rect x=\"%f\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: #3A3B3C\" />";
 
-    public SVG(int x, int y, String viewBox, int width, int height) {
+    //Our SVG Constructor.
+    public SVG(int x, int y, String viewBox, int width, int height)
+    {
         this.x = x;
         this.y = y;
         this.viewBox = viewBox;
@@ -58,36 +64,51 @@ public class SVG {
         svg.append(String.format(headerTemplate, height, width, viewBox, x, y));
     }
 
-    public void addRect(double x, double y, double height, double width) {
+    //What does this method?
+    public void addRect(double x, double y, double height, double width)
+    {
         svg.append(String.format(rectTemplate, x, y, height, width));
     }
 
-    public void addSideFrame(double x, double y, double height, double width) {
+    //What does this method?
+    public void addSideFrame(double x, double y, double height, double width)
+    {
         svg.append(String.format(frameSideTemplate, x, y, height, width));
     }
 
-    public void addLine(double x1, double y1, double x2, double y2) {
+    //What does this method?
+    public void addLine(double x1, double y1, double x2, double y2)
+    {
         svg.append(String.format(lineTemplate, x1, y1, x2, y2));
     }
 
-    public void addArrow(double x1, double y1, double x2, double y2) {
+    //What does this method?
+    public void addArrow(double x1, double y1, double x2, double y2)
+    {
         svg.append(String.format(arrowTemplate, x1, y1, x2, y2) + markerOneTemplate);
     }
 
-    public void addRoof(double x, double y, double height, double width) {
+    //What does this method?
+    public void addRoof(double x, double y, double height, double width)
+    {
         svg.append(String.format(roofTemplate, x, y, height, width));
     }
 
-    public void addText(double x, double y, double rotation, int length) {
+    //What does this method?
+    public void addText(double x, double y, double rotation, int length)
+    {
         svg.append(String.format(textTemplate, x, y, rotation, x, y, length));
     }
 
-    public void addSvg(SVG innerSVG) {
+    //What does this method?
+    public void addSvg(SVG innerSVG)
+    {
         svg.append(innerSVG.toString());
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return svg.toString() + "</svg>";
     }
 }

@@ -8,19 +8,25 @@ import business.persistence.PartsMapper;
 import java.util.List;
 
 
-public class PartsFacade {
+public class PartsFacade
+{
     PartsMapper partsMapper;
 
-    public PartsFacade(Database database) {
+
+    public PartsFacade(Database database)
+    {
        partsMapper = new PartsMapper(database);
     }
 
-    public List<Parts> getAllMaterials() throws UserException {
+    //TODO: Never used delete?
+    public List<Parts> getAllMaterials() throws UserException
+    {
         return partsMapper.getAllParts();
     }
 
-    public Parts getPartsById(int partsId) throws UserException {
+    //Here we get specific parts based on a given parts id.
+    public Parts getPartsById(int partsId) throws UserException
+    {
         return partsMapper.getPartsById(partsId);
-
     }
 }
