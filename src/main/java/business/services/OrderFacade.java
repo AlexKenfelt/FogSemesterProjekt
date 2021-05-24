@@ -46,4 +46,8 @@ public class OrderFacade
     {
         return orderMapper.getOrderByCustomerId(user_id);
     }
+
+    public List<Order> getOrderStatus (Integer user_id) throws UserException{
+        return orderMapper.getOrderStatus(user_id);
+    }
 }

@@ -45,7 +45,7 @@ public abstract class Command {
 
         commands.put("offerpage", new OfferPageCommand("offerpage", "customer"));
 
-        commands.put("receiptpage", new OfferPageCommand("receiptpage", "customer"));
+        commands.put("receiptpage", new ReceiptPage("receiptpage", "customer"));
 
     }
 

@@ -5,6 +5,7 @@ import business.entities.Order;
 import business.entities.User;
 import business.exceptions.UserException;
 import business.persistence.Database;
+import business.persistence.OrderMapper;
 
 public class Tester {
 
@@ -30,13 +31,15 @@ public class Tester {
         System.out.println(carportItems.getLength());
         System.out.println(carportItems.getQuantity());
 */
-        BomFacade bomFacade = new BomFacade(database);
+        /*BomFacade bomFacade = new BomFacade(database);
 
     double value;
         value = bomFacade.getSummedPrice(16);
-        System.out.println(value);
+        System.out.println(value);*/
 
 
-
+        /*OrderMapper orderMapper = new OrderMapper(database);
+        System.out.println(orderMapper.getOrderStatus());
+*/
     }
 }

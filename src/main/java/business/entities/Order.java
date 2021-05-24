@@ -40,6 +40,10 @@ public class Order
         this.timestamp = timestamp;
     }
 
+    public Order(String status) {
+        this.status = status;
+    }
+
     public int getId()
     {
         return id;
