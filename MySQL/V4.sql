@@ -1,8 +1,9 @@
 CREATE DATABASE  IF NOT EXISTS `fog` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `fog`;
+
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
--- Host: localhost    Database: fog
+-- Host: 127.0.0.1    Database: fog
 -- ------------------------------------------------------
 -- Server version	8.0.22
 
@@ -25,16 +26,16 @@ DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orders` (
-                          `id` int NOT NULL AUTO_INCREMENT,
-                          `width` double DEFAULT NULL,
-                          `length` double DEFAULT NULL,
-                          `status` enum('pending','confirmed','delivered') NOT NULL,
-                          `user_id` int DEFAULT NULL,
-                          `timestamp` timestamp NULL DEFAULT NULL,
-                          PRIMARY KEY (`id`),
-                          KEY `fk_orders_users1_idx` (`user_id`),
-                          CONSTRAINT `fk_orders_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `width` double DEFAULT NULL,
+  `length` double DEFAULT NULL,
+  `status` enum('pending','confirmed','delivered') NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `timestamp` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_orders_users1_idx` (`user_id`),
+  CONSTRAINT `fk_orders_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,9 +44,10 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,500,800,'confirmed',2,'2021-05-05 13:15:55'),(5,2,2,'confirmed',NULL,NULL),(6,3,4,'pending',NULL,NULL),(7,6,6,'confirmed',NULL,NULL),(8,5,5,'confirmed',NULL,NULL),(9,3,4,'confirmed',NULL,NULL),(10,3,4,'pending',NULL,NULL),(11,200,450,'pending',NULL,NULL),(12,600,300,'pending',2,NULL),(13,300,300,'confirmed',2,NULL),(14,280,200,'pending',2,NULL),(15,300,300,'pending',2,NULL),(16,300,300,'pending',2,NULL);
+INSERT INTO `orders` VALUES (1,500,800,'confirmed',2,'2021-05-05 13:15:55');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
+ALTER TABLE `orders` AUTO_INCREMENT = 2;
 
 --
 -- Table structure for table `partlistitem`
@@ -55,21 +57,21 @@ DROP TABLE IF EXISTS `partlistitem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `partlistitem` (
-                                `id` int NOT NULL AUTO_INCREMENT,
-                                `order_id` int DEFAULT NULL,
-                                `parts_id` int DEFAULT NULL,
-                                `name` varchar(255) DEFAULT NULL,
-                                `quantity` int DEFAULT NULL,
-                                `length` double DEFAULT NULL,
-                                `unit` varchar(10) DEFAULT NULL,
-                                `description` varchar(255) DEFAULT NULL,
-                                `price` int DEFAULT NULL,
-                                PRIMARY KEY (`id`),
-                                KEY `fk_partlists_parts1_idx` (`parts_id`),
-                                KEY `fk_order_id_idx` (`order_id`),
-                                CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
-                                CONSTRAINT `fk_partlists_parts1` FOREIGN KEY (`parts_id`) REFERENCES `parts` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `order_id` int DEFAULT NULL,
+  `parts_id` int DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `quantity` int DEFAULT NULL,
+  `length` double DEFAULT NULL,
+  `unit` varchar(10) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_partlists_parts1_idx` (`parts_id`),
+  KEY `fk_order_id_idx` (`order_id`),
+  CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  CONSTRAINT `fk_partlists_parts1` FOREIGN KEY (`parts_id`) REFERENCES `parts` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,9 +80,9 @@ CREATE TABLE `partlistitem` (
 
 LOCK TABLES `partlistitem` WRITE;
 /*!40000 ALTER TABLE `partlistitem` DISABLE KEYS */;
-INSERT INTO `partlistitem` VALUES (3,14,1,NULL,NULL,300,NULL,NULL,NULL),(4,14,3,NULL,NULL,280,NULL,NULL,NULL),(5,14,2,NULL,NULL,280,NULL,NULL,NULL),(6,15,1,NULL,NULL,300,NULL,NULL,NULL),(7,15,3,NULL,NULL,300,NULL,NULL,NULL),(8,15,2,NULL,NULL,300,NULL,NULL,NULL),(9,16,1,NULL,NULL,300,NULL,NULL,120),(10,16,3,NULL,NULL,300,NULL,NULL,151),(11,16,2,NULL,NULL,300,NULL,NULL,111);
 /*!40000 ALTER TABLE `partlistitem` ENABLE KEYS */;
 UNLOCK TABLES;
+ALTER TABLE `partlistitem` AUTO_INCREMENT = 1;
 
 --
 -- Table structure for table `parts`
@@ -90,11 +92,11 @@ DROP TABLE IF EXISTS `parts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `parts` (
-                         `id` int NOT NULL AUTO_INCREMENT,
-                         `name` varchar(45) DEFAULT NULL,
-                         `unit` varchar(10) DEFAULT NULL,
-                         `price_per_unit` double DEFAULT NULL,
-                         PRIMARY KEY (`id`)
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `unit` varchar(10) DEFAULT NULL,
+  `price_per_unit` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -116,10 +118,10 @@ DROP TABLE IF EXISTS `shed`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `shed` (
-                        `id` int NOT NULL AUTO_INCREMENT,
-                        `length` int DEFAULT NULL,
-                        `width` int DEFAULT NULL,
-                        PRIMARY KEY (`id`)
+  `id` int NOT NULL AUTO_INCREMENT,
+  `length` int DEFAULT NULL,
+  `width` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -141,17 +143,17 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-                         `id` int NOT NULL AUTO_INCREMENT,
-                         `email` varchar(45) NOT NULL,
-                         `password` varchar(45) NOT NULL,
-                         `role` enum('customer','admin') NOT NULL,
-                         `name` varchar(45) DEFAULT NULL,
-                         `address` varchar(45) DEFAULT NULL,
-                         `postal` int DEFAULT NULL,
-                         `city` varchar(45) DEFAULT NULL,
-                         `phone` int DEFAULT NULL,
-                         PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `role` enum('customer','admin') NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `postal` int DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `phone` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,9 +162,11 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'mail@mail.dk','pass123','admin','julius','paltholmpark',3520,'farum',28299825),(2,'test@mail.dk','test123','customer','hans','rababervej',2300,'amager',11223344),(3,'alex@hej.dk','alex','customer',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'mail@mail.dk','pass123','admin','julius','paltholmpark',3520,'farum',28299825),(2,'test@mail.dk','test123','customer','hans','rababervej',2300,'amager',11223344),(3,'alex@hej.dk','alex','customer','alex','alexsvej',4350,'københavn',34414164);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+ALTER TABLE `users` AUTO_INCREMENT = 4;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -173,4 +177,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-19 13:56:24
+-- Dump completed on 2021-05-23 18:12:59

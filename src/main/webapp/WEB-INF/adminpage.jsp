@@ -42,7 +42,11 @@
                         <td>${order.width}</td>
                         <td>${order.length}</td>
                         <td>${order.status}</td>
-                        <td>${order.user}</td>
+                        <c:forEach var="user" items="${sessionScope.userlist}">
+                            <tr>
+                            <td>${user.phone}</td>
+                            </tr>
+                        </c:forEach>
                         <td>${order.timestamp}</td>
                     </tr>
                 </c:forEach>

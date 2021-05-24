@@ -27,4 +27,8 @@
     transform: translate(-50%, -50%);
 }
 
+.totheright{ /*this will align the text to the right*/
+    text-align:right;
+}
+
 
