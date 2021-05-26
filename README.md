@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Fog Carport Semester Projekt 👋</h1>
+<h1 align="center">Welcome to Fog Carport Semester Projekt</h1>
 <p>
   <a href="https://docs.google.com/document/d/1mg3o4xM6cdXQKvS7ZDQeTP2C6MkX_fiRPe4H-F5H9tQ/edit?ts=608fc306" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
