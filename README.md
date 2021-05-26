@@ -15,7 +15,7 @@
 
 👤 **Maja Nøhr-Nørgaard**
 
-* Github: [@https://github.com/cph-mn605](@https://github.com/cph-mn605)
+* Github: [@https://github.com/cph-mn605](https://github.com/cph-mn605)
 
 👤 **Julius Krüger Madsen**
 
