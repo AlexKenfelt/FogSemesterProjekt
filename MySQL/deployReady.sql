@@ -1,6 +1,5 @@
 CREATE DATABASE  IF NOT EXISTS `fog` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `fog`;
-
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: fog
@@ -35,7 +34,7 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`),
   KEY `fk_orders_users1_idx` (`user_id`),
   CONSTRAINT `fk_orders_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,10 +43,8 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,500,800,'confirmed',2,'2021-05-05 13:15:55');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
-ALTER TABLE `orders` AUTO_INCREMENT = 2;
 
 --
 -- Table structure for table `partlistitem`
@@ -71,7 +68,7 @@ CREATE TABLE `partlistitem` (
   KEY `fk_order_id_idx` (`order_id`),
   CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   CONSTRAINT `fk_partlists_parts1` FOREIGN KEY (`parts_id`) REFERENCES `parts` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,7 +79,6 @@ LOCK TABLES `partlistitem` WRITE;
 /*!40000 ALTER TABLE `partlistitem` DISABLE KEYS */;
 /*!40000 ALTER TABLE `partlistitem` ENABLE KEYS */;
 UNLOCK TABLES;
-ALTER TABLE `partlistitem` AUTO_INCREMENT = 1;
 
 --
 -- Table structure for table `parts`
@@ -111,31 +107,6 @@ INSERT INTO `parts` VALUES (1,'25x200	mm.	trykimp. Brædt','stk',100),(2,'25x125
 UNLOCK TABLES;
 
 --
--- Table structure for table `shed`
---
-
-DROP TABLE IF EXISTS `shed`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `shed` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `length` int DEFAULT NULL,
-  `width` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `shed`
---
-
-LOCK TABLES `shed` WRITE;
-/*!40000 ALTER TABLE `shed` DISABLE KEYS */;
-INSERT INTO `shed` VALUES (1,200,200);
-/*!40000 ALTER TABLE `shed` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `users`
 --
 
@@ -153,7 +124,7 @@ CREATE TABLE `users` (
   `city` varchar(45) DEFAULT NULL,
   `phone` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,11 +133,9 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'mail@mail.dk','pass123','admin','julius','paltholmpark',3520,'farum',28299825),(2,'test@mail.dk','test123','customer','hans','rababervej',2300,'amager',11223344),(3,'alex@hej.dk','alex','customer','alex','alexsvej',4350,'københavn',34414164);
+INSERT INTO `users` VALUES (1,'admin@admin.com','admin','admin','admin','admin',3520,'admin',11223344),(2,'test@test.com','test','customer','hans','rababervej',2300,'amager',11223344);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
-ALTER TABLE `users` AUTO_INCREMENT = 4;
-
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -177,4 +146,4 @@ ALTER TABLE `users` AUTO_INCREMENT = 4;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-23 18:12:59
+-- Dump completed on 2021-05-26 14:09:31
