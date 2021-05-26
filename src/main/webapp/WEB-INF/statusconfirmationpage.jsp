@@ -47,9 +47,9 @@
                                     value="${order.id}">
                                 Fjern
                             </button>
-                            <button name="confirm" type="submit" value="${order.id}"
-                                    class="btn btn-primary checkoutbtn">Confirm order
-                            </button>
+                        </td>
+                        <td>
+                            <button name="confirm" type="submit" value="${order.id}" class="btn btn-primary checkoutbtn">Confirm order</button>
 
                         </td>
                     </tr>
