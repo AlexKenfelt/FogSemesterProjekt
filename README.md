@@ -5,7 +5,7 @@
   </a>
 </p>
 
-### ✨ [Demo site for the project](https://www.google.com/)
+### ✨ [Demo site for the project](http://167.71.57.146:8080/FogSemesterProjekt-1.0-SNAPSHOT/fc/index)
 
 ## Authors
 
