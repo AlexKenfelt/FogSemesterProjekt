@@ -1,8 +1,15 @@
 <h1 align="center">Welcome to Fog Carport Semester Projekt</h1>
 <p>
-  <a href="https://docs.google.com/document/d/1mg3o4xM6cdXQKvS7ZDQeTP2C6MkX_fiRPe4H-F5H9tQ/edit?ts=608fc306" target="_blank">
+  <a href="" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
+</p>
+
+<p>https://youtu.be/KZOoiANbHDE</p>
+
+<p>
+This project was made using the provided template from the teachers on 2. semester on Computer Science in Lyngby.
+<a href="https://github.com/jonbertelsen/sem2-startcode">Github link to template.
 </p>
 
 ### ✨ [Demo site for the project](http://167.71.57.146:8080/FogSemesterProjekt-1.0-SNAPSHOT/fc/index)
