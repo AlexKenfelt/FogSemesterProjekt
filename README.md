@@ -6,8 +6,8 @@
 </p>
 
 <p>
-This project was made using the provided <a href="https://github.com/jonbertelsen/sem2-startcode">template 
-  <p>from the teachers on 2. semester on Computer Science in Lyngby.</p>
+This project was made using the provided template from the teachers on 2. semester on Computer Science in Lyngby.
+<a href="https://github.com/jonbertelsen/sem2-startcode">Github link to template.
 </p>
 
 ### ✨ [Demo site for the project](http://167.71.57.146:8080/FogSemesterProjekt-1.0-SNAPSHOT/fc/index)
