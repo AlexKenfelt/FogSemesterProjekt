@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Fog Carport Semester Projekt</h1>
 <p>
-  <a href="" target="_blank">
+  <a href="https://github.com/AlexKenfelt/FogSemesterProjekt/blob/main/documentation/FOG-CARPORTE.pdf" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
 </p>
