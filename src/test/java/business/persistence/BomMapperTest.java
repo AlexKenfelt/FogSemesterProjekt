@@ -38,6 +38,7 @@ public class BomMapperTest
         try (Statement stmt = database.connect().createStatement())
         {
             stmt.execute("drop table if exists partlistitem");
+            stmt.execute("create table " + TESTDATABASE + ".partlistitem LIKE " + DATABASE + ".partlistitem;");
             stmt.execute("insert into partlistitem values " +
                             "(11, 16, 1, '25x200mm. trykimp. Brædt', 6, 700, 'stk.', 'This is a description of how to use this item.', 600), " +
                             "(12, 16, 3, '25x200mm. trykimp. Brædt', 12, 600, 'stk.', 'This is a description of how to use this item.', 1380), " +

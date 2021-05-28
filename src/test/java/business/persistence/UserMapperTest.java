@@ -41,9 +41,9 @@ public class UserMapperTest {
             stmt.execute("create table " + TESTDATABASE + ".users LIKE " + DATABASE + ".users;");
             stmt.execute(
                     "insert into users values " +
-                            "(1,'jens@somewhere.com','jensen','customer'), " +
-                            "(2,'ken@somewhere.com','kensen','customer'), " +
-                            "(3,'robin@somewhere.com','batman','employee')");
+                            "(1,'hej','hej','customer', 'hej', 'hej', 2300, 'hej', 8229193), " +
+                            "(2,'hej','hej','customer', 'hej', 'hej', 2300, 'hej', 822919), " +
+                            "(3,'hej','hej','admin', 'hej', 'hej', 2300, 'hej', 82294519)");
         } catch (SQLException ex) {
             System.out.println("Could not open connection to database: " + ex.getMessage());
         }
@@ -58,7 +58,7 @@ public class UserMapperTest {
     @Test
     public void testLogin01() throws UserException {
         // Can we log in
-        User user = userMapper.login("jens@somewhere.com", "jensen");
+        User user = userMapper.login("hej", "hej");
         assertTrue(user != null);
     }
 
@@ -67,7 +67,7 @@ public class UserMapperTest {
         // We should get an exception if we use the wrong password
         assertThrows(UserException.class, () ->
         {
-            User user = userMapper.login("jens@somewhere.com", "larsen");
+            User user = userMapper.login("hej", "hergergj");
         });
 
     }
@@ -75,7 +75,7 @@ public class UserMapperTest {
     @Test
     public void testLogin03() throws UserException {
         // Jens is supposed to be a customer
-        User user = userMapper.login("jens@somewhere.com", "jensen");
+        User user = userMapper.login("hej", "hej");
         assertEquals("customer", user.getRole());
     }
 
@@ -83,9 +83,9 @@ public class UserMapperTest {
     public void testCreateUser01() throws UserException {
         // Can we create a new user - Notice, if login fails, this will fail
         // but so would login01, so this is OK
-        User original = new User("king@kong.com", "uhahvorhemmeligt", "konge");
+        User original = new User("hejse","hejse","konge", "hej", "hej", "2300", "hej", "8229193");
         userMapper.createUser(original);
-        User retrieved = userMapper.login("king@kong.com", "uhahvorhemmeligt");
+        User retrieved = userMapper.login("hejse", "hejse");
         assertEquals("konge", retrieved.getRole());
     }
 }

@@ -44,7 +44,7 @@ public class BuildCarportCommand extends CommandProtectedPage
             throw new UserException("Lengh or Width is missing");
         }
 
-        //And setting the length and width in the SessionScope, to be used elsewhere.
+        //And setting the length and width in the Session, to be used elsewhere.
         request.setAttribute("length", length);
         request.setAttribute("width", width);
 
@@ -55,7 +55,7 @@ public class BuildCarportCommand extends CommandProtectedPage
         bom.addToBill(bomService.calculateRafters(width,length));
         bom.addToBill(bomService.calculateBeams(length));
 
-        //Here we pull the user ID from sessionScope and creates a new order object.
+        //Here we pull the user ID from session and creates a new order object.
         User user = (User) session.getAttribute("user");
         order = new Order(length, width);
 
@@ -68,10 +68,10 @@ public class BuildCarportCommand extends CommandProtectedPage
             e.printStackTrace();
         }
 
-        //Setting the new order with the width and length to the SessionScope to be called on next page.
+        //Saving the new order with the width and length to the Session to be called on next page.
         request.setAttribute("order", order);
 
-        //Pulls our Bill of materials from the database and setting it to the sessionScope.
+        //Pulls our Bill of materials from the database and saving it to the session.
         List<CarportItems> carportItems = bomFacade.getBomByOrderId(order.getId());
         session.setAttribute("carportItems", carportItems);
 
